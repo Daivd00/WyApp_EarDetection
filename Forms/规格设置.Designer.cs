@@ -36,6 +36,12 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.uiDouble49 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble48 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble47 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble46 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble45 = new Sunny.UI.UIDoubleUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             this.uiDouble44 = new Sunny.UI.UIDoubleUpDown();
             this.uiDouble43 = new Sunny.UI.UIDoubleUpDown();
             this.uiDouble40 = new Sunny.UI.UIDoubleUpDown();
@@ -120,6 +126,12 @@
             this.uiTextBox3 = new Sunny.UI.UITextBox();
             this.uiTextBox2 = new Sunny.UI.UITextBox();
             this.txt_PointMoveStepAdd = new Sunny.UI.UITextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.uiDouble50 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble51 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble52 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble53 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDouble54 = new Sunny.UI.UIDoubleUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -224,6 +236,18 @@
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.uiDouble54);
+            this.panel11.Controls.Add(this.uiDouble53);
+            this.panel11.Controls.Add(this.uiDouble52);
+            this.panel11.Controls.Add(this.uiDouble51);
+            this.panel11.Controls.Add(this.uiDouble50);
+            this.panel11.Controls.Add(this.label15);
+            this.panel11.Controls.Add(this.uiDouble49);
+            this.panel11.Controls.Add(this.uiDouble48);
+            this.panel11.Controls.Add(this.uiDouble47);
+            this.panel11.Controls.Add(this.uiDouble46);
+            this.panel11.Controls.Add(this.uiDouble45);
+            this.panel11.Controls.Add(this.label14);
             this.panel11.Controls.Add(this.uiDouble44);
             this.panel11.Controls.Add(this.uiDouble43);
             this.panel11.Controls.Add(this.uiDouble40);
@@ -285,6 +309,111 @@
             this.panel11.Size = new System.Drawing.Size(807, 360);
             this.panel11.TabIndex = 23;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
+            // 
+            // uiDouble49
+            // 
+            this.uiDouble49.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble49.Decimal = 4;
+            this.uiDouble49.DecimalPlaces = 4;
+            this.uiDouble49.Enabled = false;
+            this.uiDouble49.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble49.Location = new System.Drawing.Point(654, 145);
+            this.uiDouble49.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble49.Maximum = 100D;
+            this.uiDouble49.Minimum = 0D;
+            this.uiDouble49.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble49.Name = "uiDouble49";
+            this.uiDouble49.ShowText = false;
+            this.uiDouble49.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble49.TabIndex = 132;
+            this.uiDouble49.Text = "uiDoubleUpDown4";
+            this.uiDouble49.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble48
+            // 
+            this.uiDouble48.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble48.Decimal = 4;
+            this.uiDouble48.DecimalPlaces = 4;
+            this.uiDouble48.Enabled = false;
+            this.uiDouble48.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble48.Location = new System.Drawing.Point(509, 145);
+            this.uiDouble48.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble48.Maximum = 100D;
+            this.uiDouble48.Minimum = 0D;
+            this.uiDouble48.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble48.Name = "uiDouble48";
+            this.uiDouble48.ShowText = false;
+            this.uiDouble48.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble48.TabIndex = 133;
+            this.uiDouble48.Text = "uiDoubleUpDown4";
+            this.uiDouble48.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble47
+            // 
+            this.uiDouble47.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble47.Decimal = 4;
+            this.uiDouble47.DecimalPlaces = 4;
+            this.uiDouble47.Enabled = false;
+            this.uiDouble47.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble47.Location = new System.Drawing.Point(364, 145);
+            this.uiDouble47.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble47.Maximum = 100D;
+            this.uiDouble47.Minimum = 0D;
+            this.uiDouble47.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble47.Name = "uiDouble47";
+            this.uiDouble47.ShowText = false;
+            this.uiDouble47.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble47.TabIndex = 132;
+            this.uiDouble47.Text = "uiDoubleUpDown4";
+            this.uiDouble47.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble46
+            // 
+            this.uiDouble46.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble46.Decimal = 4;
+            this.uiDouble46.DecimalPlaces = 4;
+            this.uiDouble46.Enabled = false;
+            this.uiDouble46.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble46.Location = new System.Drawing.Point(219, 147);
+            this.uiDouble46.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble46.Maximum = 100D;
+            this.uiDouble46.Minimum = 0D;
+            this.uiDouble46.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble46.Name = "uiDouble46";
+            this.uiDouble46.ShowText = false;
+            this.uiDouble46.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble46.TabIndex = 131;
+            this.uiDouble46.Text = "uiDoubleUpDown4";
+            this.uiDouble46.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble45
+            // 
+            this.uiDouble45.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble45.Decimal = 4;
+            this.uiDouble45.DecimalPlaces = 4;
+            this.uiDouble45.Enabled = false;
+            this.uiDouble45.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble45.Location = new System.Drawing.Point(74, 145);
+            this.uiDouble45.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble45.Maximum = 100D;
+            this.uiDouble45.Minimum = 0D;
+            this.uiDouble45.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble45.Name = "uiDouble45";
+            this.uiDouble45.ShowText = false;
+            this.uiDouble45.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble45.TabIndex = 130;
+            this.uiDouble45.Text = "uiDoubleUpDown1";
+            this.uiDouble45.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.SystemColors.Control;
+            this.label14.Location = new System.Drawing.Point(16, 155);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 12);
+            this.label14.TabIndex = 129;
+            this.label14.Text = "左短端";
             // 
             // uiDouble44
             // 
@@ -389,7 +518,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 123;
-            this.label13.Text = "长端";
+            this.label13.Text = "总长";
             // 
             // uiDouble34
             // 
@@ -594,7 +723,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 111;
-            this.label11.Text = "胶高";
+            this.label11.Text = "长端";
             // 
             // label12
             // 
@@ -1211,8 +1340,8 @@
             this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.79646F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.20354F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 255F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267F));
             this.tableLayoutPanel4.Controls.Add(this.btn_Change, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btn_Save, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1220,7 +1349,7 @@
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(807, 40);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
@@ -1238,10 +1367,10 @@
             this.btn_Change.ForeHoverColor = System.Drawing.Color.Gray;
             this.btn_Change.ForePressColor = System.Drawing.Color.DimGray;
             this.btn_Change.ForeSelectedColor = System.Drawing.Color.Silver;
-            this.btn_Change.Location = new System.Drawing.Point(293, 3);
+            this.btn_Change.Location = new System.Drawing.Point(277, 3);
             this.btn_Change.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Change.Name = "btn_Change";
-            this.btn_Change.Size = new System.Drawing.Size(114, 34);
+            this.btn_Change.Size = new System.Drawing.Size(107, 34);
             this.btn_Change.Style = Sunny.UI.UIStyle.Custom;
             this.btn_Change.TabIndex = 19;
             this.btn_Change.Text = "修改";
@@ -1263,10 +1392,10 @@
             this.btn_Save.ForeHoverColor = System.Drawing.Color.Gray;
             this.btn_Save.ForePressColor = System.Drawing.Color.DimGray;
             this.btn_Save.ForeSelectedColor = System.Drawing.Color.Silver;
-            this.btn_Save.Location = new System.Drawing.Point(413, 3);
+            this.btn_Save.Location = new System.Drawing.Point(390, 3);
             this.btn_Save.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(135, 34);
+            this.btn_Save.Size = new System.Drawing.Size(146, 34);
             this.btn_Save.Style = Sunny.UI.UIStyle.Custom;
             this.btn_Save.TabIndex = 20;
             this.btn_Save.Text = "保存";
@@ -1651,6 +1780,110 @@
             this.txt_PointMoveStepAdd.TabIndex = 58;
             this.txt_PointMoveStepAdd.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.SystemColors.Control;
+            this.label15.Location = new System.Drawing.Point(16, 332);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.TabIndex = 134;
+            this.label15.Text = "右短端";
+            // 
+            // uiDouble50
+            // 
+            this.uiDouble50.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble50.Decimal = 4;
+            this.uiDouble50.DecimalPlaces = 4;
+            this.uiDouble50.Enabled = false;
+            this.uiDouble50.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble50.Location = new System.Drawing.Point(74, 324);
+            this.uiDouble50.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble50.Maximum = 100D;
+            this.uiDouble50.Minimum = 0D;
+            this.uiDouble50.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble50.Name = "uiDouble50";
+            this.uiDouble50.ShowText = false;
+            this.uiDouble50.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble50.TabIndex = 127;
+            this.uiDouble50.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble51
+            // 
+            this.uiDouble51.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble51.Decimal = 4;
+            this.uiDouble51.DecimalPlaces = 4;
+            this.uiDouble51.Enabled = false;
+            this.uiDouble51.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble51.Location = new System.Drawing.Point(219, 324);
+            this.uiDouble51.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble51.Maximum = 100D;
+            this.uiDouble51.Minimum = 0D;
+            this.uiDouble51.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble51.Name = "uiDouble51";
+            this.uiDouble51.ShowText = false;
+            this.uiDouble51.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble51.TabIndex = 135;
+            this.uiDouble51.Text = "uiDoubleUpDown4";
+            this.uiDouble51.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble52
+            // 
+            this.uiDouble52.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble52.Decimal = 4;
+            this.uiDouble52.DecimalPlaces = 4;
+            this.uiDouble52.Enabled = false;
+            this.uiDouble52.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble52.Location = new System.Drawing.Point(364, 324);
+            this.uiDouble52.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble52.Maximum = 100D;
+            this.uiDouble52.Minimum = 0D;
+            this.uiDouble52.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble52.Name = "uiDouble52";
+            this.uiDouble52.ShowText = false;
+            this.uiDouble52.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble52.TabIndex = 136;
+            this.uiDouble52.Text = "uiDoubleUpDown1";
+            this.uiDouble52.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble53
+            // 
+            this.uiDouble53.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble53.Decimal = 4;
+            this.uiDouble53.DecimalPlaces = 4;
+            this.uiDouble53.Enabled = false;
+            this.uiDouble53.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble53.Location = new System.Drawing.Point(509, 324);
+            this.uiDouble53.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble53.Maximum = 100D;
+            this.uiDouble53.Minimum = 0D;
+            this.uiDouble53.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble53.Name = "uiDouble53";
+            this.uiDouble53.ShowText = false;
+            this.uiDouble53.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble53.TabIndex = 137;
+            this.uiDouble53.Text = "uiDoubleUpDown4";
+            this.uiDouble53.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDouble54
+            // 
+            this.uiDouble54.BackColor = System.Drawing.Color.DarkGreen;
+            this.uiDouble54.Decimal = 4;
+            this.uiDouble54.DecimalPlaces = 4;
+            this.uiDouble54.Enabled = false;
+            this.uiDouble54.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDouble54.Location = new System.Drawing.Point(654, 324);
+            this.uiDouble54.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDouble54.Maximum = 100D;
+            this.uiDouble54.Minimum = 0D;
+            this.uiDouble54.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDouble54.Name = "uiDouble54";
+            this.uiDouble54.ShowText = false;
+            this.uiDouble54.Size = new System.Drawing.Size(137, 20);
+            this.uiDouble54.TabIndex = 138;
+            this.uiDouble54.Text = "uiDoubleUpDown4";
+            this.uiDouble54.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // 规格设置
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1739,7 +1972,7 @@
         private Sunny.UI.UIDoubleUpDown uiDouble40;
         private Sunny.UI.UIDoubleUpDown uiDouble41;
         private Sunny.UI.UIDoubleUpDown uiDouble42;
-        private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label13;
         private Sunny.UI.UIDoubleUpDown uiDouble34;
         private Sunny.UI.UIDoubleUpDown uiDouble24;
         private Sunny.UI.UIDoubleUpDown uiDouble33;
@@ -1764,5 +1997,17 @@
         private Sunny.UI.UIDoubleUpDown uiDouble02;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+		private Sunny.UI.UIDoubleUpDown uiDouble49;
+		private Sunny.UI.UIDoubleUpDown uiDouble48;
+		private Sunny.UI.UIDoubleUpDown uiDouble47;
+		private Sunny.UI.UIDoubleUpDown uiDouble46;
+		private Sunny.UI.UIDoubleUpDown uiDouble45;
+		private System.Windows.Forms.Label label14;
+        private Sunny.UI.UIDoubleUpDown uiDouble54;
+        private Sunny.UI.UIDoubleUpDown uiDouble53;
+        private Sunny.UI.UIDoubleUpDown uiDouble52;
+        private Sunny.UI.UIDoubleUpDown uiDouble51;
+        private Sunny.UI.UIDoubleUpDown uiDouble50;
+        private System.Windows.Forms.Label label15;
     }
 }

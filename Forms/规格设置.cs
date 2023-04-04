@@ -89,6 +89,19 @@ namespace WY_App
             uiDouble42.Enabled = true;
             uiDouble43.Enabled = true;
             uiDouble44.Enabled = true;
+
+			uiDouble45.Enabled = true;
+			uiDouble46.Enabled = true;
+			uiDouble47.Enabled = true;
+			uiDouble48.Enabled = true;
+			uiDouble49.Enabled = true;
+
+            uiDouble50.Enabled = true;
+            uiDouble51.Enabled = true;
+            uiDouble52.Enabled = true;
+            uiDouble53.Enabled = true;
+            uiDouble54.Enabled = true;
+
             btn_Save.Enabled = true;
 
         }
@@ -113,36 +126,47 @@ namespace WY_App
             num_胶线adjustN1.Value = Parameter.specificationsCam1[0].胶线.adjust;
             num_胶线adjustN2.Value = Parameter.specificationsCam1[1].胶线.adjust;
 
-            uiDouble00.Value = Parameter.specificationsCam2[0].料长.min;
-            uiDouble01.Value = Parameter.specificationsCam2[0].料长.value;
-            uiDouble02.Value = Parameter.specificationsCam2[0].料长.max;
-            uiDouble03.Value = Parameter.specificationsCam2[0].料长.adjust;
-            uiDouble04.Value = Parameter.specificationsCam2[1].料长.adjust;
+            uiDouble00.Value = Parameter.specificationsCam2[0].检测规格[0].min;
+            uiDouble01.Value = Parameter.specificationsCam2[0].检测规格[0].value;
+            uiDouble02.Value = Parameter.specificationsCam2[0].检测规格[0].max;
+            uiDouble03.Value = Parameter.specificationsCam2[0].检测规格[0].adjust;
+            uiDouble04.Value = Parameter.specificationsCam2[1].检测规格[0].adjust;
 
-            uiDouble10.Value = Parameter.specificationsCam2[0].料宽.min;
-            uiDouble11.Value = Parameter.specificationsCam2[0].料宽.value;
-            uiDouble12.Value = Parameter.specificationsCam2[0].料宽.max;
-            uiDouble13.Value = Parameter.specificationsCam2[0].料宽.adjust;
-            uiDouble14.Value = Parameter.specificationsCam2[1].料宽.adjust;
+            uiDouble10.Value = Parameter.specificationsCam2[0].检测规格[1].min;
+			uiDouble11.Value = Parameter.specificationsCam2[0].检测规格[1].value;
+			uiDouble12.Value = Parameter.specificationsCam2[0].检测规格[1].max;
+			uiDouble13.Value = Parameter.specificationsCam2[0].检测规格[1].adjust;
+			uiDouble14.Value = Parameter.specificationsCam2[1].检测规格[1].adjust;
 
-            uiDouble20.Value = Parameter.specificationsCam2[0].胶宽.min;
-            uiDouble21.Value = Parameter.specificationsCam2[0].胶宽.value;
-            uiDouble22.Value = Parameter.specificationsCam2[0].胶宽.max;
-            uiDouble23.Value = Parameter.specificationsCam2[0].胶宽.adjust;
-            uiDouble24.Value = Parameter.specificationsCam2[1].胶宽.adjust;
+            uiDouble20.Value = Parameter.specificationsCam2[0].检测规格[2].min;
+			uiDouble21.Value = Parameter.specificationsCam2[0].检测规格[2].value;
+			uiDouble22.Value = Parameter.specificationsCam2[0].检测规格[2].max;
+			uiDouble23.Value = Parameter.specificationsCam2[0].检测规格[2].adjust;
+			uiDouble24.Value = Parameter.specificationsCam2[1].检测规格[2].adjust;
 
-            uiDouble30.Value = Parameter.specificationsCam2[0].长端.min;
-            uiDouble31.Value = Parameter.specificationsCam2[0].长端.value;
-            uiDouble32.Value = Parameter.specificationsCam2[0].长端.max;
-            uiDouble33.Value = Parameter.specificationsCam2[0].长端.adjust;
-            uiDouble34.Value = Parameter.specificationsCam2[1].长端.adjust;
+            uiDouble30.Value = Parameter.specificationsCam2[0].检测规格[3].min;
+			uiDouble31.Value = Parameter.specificationsCam2[0].检测规格[3].value;
+			uiDouble32.Value = Parameter.specificationsCam2[0].检测规格[3].max;
+			uiDouble33.Value = Parameter.specificationsCam2[0].检测规格[3].adjust;
+			uiDouble34.Value = Parameter.specificationsCam2[1].检测规格[3].adjust;
 
-            uiDouble40.Value = Parameter.specificationsCam2[0].短端.min;
-            uiDouble41.Value = Parameter.specificationsCam2[0].短端.value;
-            uiDouble42.Value = Parameter.specificationsCam2[0].短端.max;
-            uiDouble43.Value = Parameter.specificationsCam2[0].短端.adjust;
-            uiDouble44.Value = Parameter.specificationsCam2[1].短端.adjust;
+            uiDouble40.Value = Parameter.specificationsCam2[0].检测规格[4].min;
+			uiDouble41.Value = Parameter.specificationsCam2[0].检测规格[4].value;
+			uiDouble42.Value = Parameter.specificationsCam2[0].检测规格[4].max;
+			uiDouble43.Value = Parameter.specificationsCam2[0].检测规格[4].adjust;
+			uiDouble44.Value = Parameter.specificationsCam2[1].检测规格[4].adjust;
 
+			uiDouble45.Value = Parameter.specificationsCam2[0].检测规格[5].min;
+			uiDouble46.Value = Parameter.specificationsCam2[0].检测规格[5].value;
+			uiDouble47.Value = Parameter.specificationsCam2[0].检测规格[5].max;
+			uiDouble48.Value = Parameter.specificationsCam2[0].检测规格[5].adjust;
+			uiDouble49.Value = Parameter.specificationsCam2[1].检测规格[5].adjust;
+
+            uiDouble50.Value = Parameter.specificationsCam2[0].检测规格[6].min;
+            uiDouble51.Value = Parameter.specificationsCam2[0].检测规格[6].value;
+            uiDouble52.Value = Parameter.specificationsCam2[0].检测规格[6].max;
+            uiDouble53.Value = Parameter.specificationsCam2[0].检测规格[6].adjust;
+            uiDouble54.Value = Parameter.specificationsCam2[1].检测规格[6].adjust;
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -165,35 +189,48 @@ namespace WY_App
             Parameter.specificationsCam1[0].胶线.adjust = num_胶线adjustN1.Value;
             Parameter.specificationsCam1[1].胶线.adjust = num_胶线adjustN2.Value;
 
-            Parameter.specificationsCam2[0].料长.min = uiDouble00.Value;
-            Parameter.specificationsCam2[0].料长.value = uiDouble01.Value;
-            Parameter.specificationsCam2[0].料长.max = uiDouble02.Value;
-            Parameter.specificationsCam2[0].料长.adjust = uiDouble03.Value;
-            Parameter.specificationsCam2[1].料长.adjust = uiDouble04.Value;
+            Parameter.specificationsCam2[0].检测规格[0].min = uiDouble00.Value;
+			Parameter.specificationsCam2[0].检测规格[0].value = uiDouble01.Value;
+			Parameter.specificationsCam2[0].检测规格[0].max = uiDouble02.Value;
+			Parameter.specificationsCam2[0].检测规格[0].adjust = uiDouble03.Value;
+			Parameter.specificationsCam2[1].检测规格[0].adjust = uiDouble04.Value;
 
-            Parameter.specificationsCam2[0].料宽.min = uiDouble10.Value;
-            Parameter.specificationsCam2[0].料宽.value = uiDouble11.Value;
-            Parameter.specificationsCam2[0].料宽.max = uiDouble12.Value;
-            Parameter.specificationsCam2[0].料宽.adjust = uiDouble13.Value;
-            Parameter.specificationsCam2[1].料宽.adjust = uiDouble14.Value;
+            Parameter.specificationsCam2[0].检测规格[1].min = uiDouble10.Value;
+			Parameter.specificationsCam2[0].检测规格[1].value = uiDouble11.Value;
+			Parameter.specificationsCam2[0].检测规格[1].max = uiDouble12.Value;
+			Parameter.specificationsCam2[0].检测规格[1].adjust = uiDouble13.Value;
+			Parameter.specificationsCam2[1].检测规格[1].adjust = uiDouble14.Value;
 
-            Parameter.specificationsCam2[0].胶宽.min = uiDouble20.Value;
-            Parameter.specificationsCam2[0].胶宽.value = uiDouble21.Value;
-            Parameter.specificationsCam2[0].胶宽.max = uiDouble22.Value;
-            Parameter.specificationsCam2[0].胶宽.adjust = uiDouble23.Value;
-            Parameter.specificationsCam2[1].胶宽.adjust = uiDouble24.Value;
+            Parameter.specificationsCam2[0].检测规格[2].min = uiDouble20.Value;
+			Parameter.specificationsCam2[0].检测规格[2].value = uiDouble21.Value;
+			Parameter.specificationsCam2[0].检测规格[2].max = uiDouble22.Value;
+			Parameter.specificationsCam2[0].检测规格[2].adjust = uiDouble23.Value;
+			Parameter.specificationsCam2[1].检测规格[2].adjust = uiDouble24.Value;
 
-            Parameter.specificationsCam2[0].长端.min = uiDouble30.Value;
-            Parameter.specificationsCam2[0].长端.value = uiDouble31.Value;
-            Parameter.specificationsCam2[0].长端.max = uiDouble32.Value;
-            Parameter.specificationsCam2[0].长端.adjust = uiDouble33.Value;
-            Parameter.specificationsCam2[1].长端.adjust = uiDouble34.Value;
+            Parameter.specificationsCam2[0].检测规格[3].min = uiDouble30.Value;
+			Parameter.specificationsCam2[0].检测规格[3].value = uiDouble31.Value;
+			Parameter.specificationsCam2[0].检测规格[3].max = uiDouble32.Value;
+			Parameter.specificationsCam2[0].检测规格[3].adjust = uiDouble33.Value;
+			Parameter.specificationsCam2[1].检测规格[3].adjust = uiDouble34.Value;
 
-            Parameter.specificationsCam2[0].短端.min = uiDouble40.Value;
-            Parameter.specificationsCam2[0].短端.value = uiDouble41.Value;
-            Parameter.specificationsCam2[0].短端.max = uiDouble42.Value;
-            Parameter.specificationsCam2[0].短端.adjust = uiDouble43.Value;
-            Parameter.specificationsCam2[1].短端.adjust = uiDouble44.Value;
+            Parameter.specificationsCam2[0].检测规格[4].min = uiDouble40.Value;
+			Parameter.specificationsCam2[0].检测规格[4].value = uiDouble41.Value;
+			Parameter.specificationsCam2[0].检测规格[4].max = uiDouble42.Value;
+			Parameter.specificationsCam2[0].检测规格[4].adjust = uiDouble43.Value;
+			Parameter.specificationsCam2[1].检测规格[4].adjust = uiDouble44.Value;
+
+			Parameter.specificationsCam2[0].检测规格[5].min = uiDouble45.Value;
+			Parameter.specificationsCam2[0].检测规格[5].value = uiDouble46.Value;
+			Parameter.specificationsCam2[0].检测规格[5].max = uiDouble47.Value;
+			Parameter.specificationsCam2[0].检测规格[5].adjust = uiDouble48.Value;
+			Parameter.specificationsCam2[1].检测规格[5].adjust = uiDouble49.Value;
+
+            Parameter.specificationsCam2[0].检测规格[6].min = uiDouble50.Value;
+            Parameter.specificationsCam2[0].检测规格[6].value = uiDouble51.Value;
+            Parameter.specificationsCam2[0].检测规格[6].max = uiDouble52.Value;
+            Parameter.specificationsCam2[0].检测规格[6].adjust = uiDouble53.Value;
+            Parameter.specificationsCam2[1].检测规格[6].adjust = uiDouble54.Value;
+
 
             XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[0], "Parameter/Cam1Specifications0.xml");
             XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[1], "Parameter/Cam1Specifications1.xml");

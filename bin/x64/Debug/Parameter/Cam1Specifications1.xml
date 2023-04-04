@@ -1,71 +1,81 @@
 <?xml version="1.0"?>
 <SpecificationsCam1 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <矩形检测区域>
-    <Row1>1064.4981378026071</Row1>
-    <Colum1>1073.1977329974811</Colum1>
-    <Row2>1407.7383612662943</Row2>
-    <Colum2>1635.8677581863981</Colum2>
+    <Row1>944.36405959031663</Row1>
+    <Colum1>957.580604534005</Colum1>
+    <Row2>1354.3454376163872</Row2>
+    <Colum2>1518.7090680100755</Colum2>
     <Length1>0</Length1>
     <Length2>0</Length2>
     <阈值>8</阈值>
     <simga>2</simga>
     <Index>0</Index>
+    <LineLength>0</LineLength>
   </矩形检测区域>
   <模板区域>
     <Rect1>
-      <Row1>1085.4739292364991</Row1>
-      <Colum1>1042.3664987405541</Colum1>
-      <Row2>1354.3454376163872</Row2>
-      <Colum2>1037.7418136020151</Colum2>
+      <Row1>940.55027932960888</Row1>
+      <Colum1>954.49748110831229</Colum1>
+      <Row2>1306.6731843575419</Row2>
+      <Colum2>962.205289672544</Colum2>
       <Length1>100</Length1>
       <Length2>3</Length2>
       <阈值>8</阈值>
+      <极性 />
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>100</LineLength>
     </Rect1>
     <Rect1>
-      <Row1>1060.6843575418995</Row1>
-      <Colum1>1682.1146095717884</Colum1>
-      <Row2>1379.135009310987</Row2>
-      <Colum2>1671.3236775818639</Colum2>
+      <Row1>913.85381750465547</Row1>
+      <Colum1>1591.1624685138538</Colum1>
+      <Row2>1299.0456238361267</Row2>
+      <Colum2>1589.6209068010075</Colum2>
       <Length1>100</Length1>
       <Length2>3</Length2>
       <阈值>8</阈值>
+      <极性 />
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>100</LineLength>
     </Rect1>
     <Rect1>
-      <Row1>1417.2728119180633</Row1>
-      <Colum1>1161.0667506297229</Colum1>
-      <Row2>1430.62104283054</Row2>
-      <Colum2>1509.4596977329975</Colum2>
+      <Row1>1348.624767225326</Row1>
+      <Colum1>1039.2833753148614</Colum1>
+      <Row2>1350.5316573556797</Row2>
+      <Colum2>1386.1347607052896</Colum2>
       <Length1>100</Length1>
       <Length2>3</Length2>
-      <阈值>8</阈值>
+      <阈值>15</阈值>
+      <极性 />
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>100</LineLength>
     </Rect1>
     <Rect1>
-      <Row1>992.036312849162</Row1>
-      <Colum1>1887.1423173803526</Colum1>
-      <Row2>995.85009310986959</Row2>
-      <Colum2>2178.4974811083125</Colum2>
+      <Row1>917.6675977653631</Row1>
+      <Colum1>1628.1599496221663</Colum1>
+      <Row2>923.3882681564246</Row2>
+      <Colum2>2022.7997481108312</Colum2>
       <Length1>100</Length1>
       <Length2>3</Length2>
       <阈值>8</阈值>
+      <极性 />
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>20</LineLength>
     </Rect1>
     <Rect1>
-      <Row1>1009.46435546875</Row1>
-      <Colum1>1167.743896484375</Colum1>
-      <Row2>1004.9051341568892</Row2>
-      <Colum2>1503.7255489421643</Colum2>
+      <Row1>1004.2448018753687</Row1>
+      <Colum1>1044.981201171875</Colum1>
+      <Row2>997.77784996141918</Row2>
+      <Colum2>1379.9501692305714</Colum2>
       <Length1>100</Length1>
       <Length2>3</Length2>
       <阈值>8</阈值>
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>10</LineLength>
     </Rect1>
     <Rect1>
       <Row1>0</Row1>
@@ -77,48 +87,55 @@
       <阈值>8</阈值>
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>0</LineLength>
     </Rect1>
   </模板区域>
   <基准>
     <Rect1>
-      <Row1>1068.3119180633148</Row1>
-      <Colum1>1042.3664987405541</Colum1>
-      <Row2>1339.0903165735567</Row2>
-      <Colum2>1040.8249370277078</Colum2>
+      <Row1>927.20204841713223</Row1>
+      <Colum1>956.03904282115866</Colum1>
+      <Row2>1318.1145251396647</Row2>
+      <Colum2>951.41435768261965</Colum2>
       <Length1>200</Length1>
       <Length2>3</Length2>
       <阈值>8</阈值>
+      <极性 />
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>100</LineLength>
     </Rect1>
     <Rect1>
-      <Row1>990.1294227188082</Row1>
-      <Colum1>729.4294710327456</Colum1>
-      <Row2>990.1294227188082</Row2>
-      <Colum2>952.955919395466</Colum2>
+      <Row1>883.34357541899442</Row1>
+      <Colum1>547.52518891687657</Colum1>
+      <Row2>889.06424581005592</Row2>
+      <Colum2>854.2959697732997</Colum2>
       <Length1>200</Length1>
       <Length2>3</Length2>
       <阈值>8</阈值>
+      <极性 />
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>100</LineLength>
     </Rect1>
     <Rect1>
-      <Row1>995.85009310986959</Row1>
-      <Colum1>1754.5680100755667</Colum1>
-      <Row2>1001.5707635009311</Row2>
-      <Colum2>2073.6712846347609</Colum2>
+      <Row1>898.59869646182494</Row1>
+      <Colum1>1749.9433249370277</Colum1>
+      <Row2>910.04003724394784</Row2>
+      <Colum2>2093.7115869017634</Colum2>
       <Length1>200</Length1>
       <Length2>3</Length2>
       <阈值>8</阈值>
+      <极性 />
       <simga>2</simga>
       <Index>0</Index>
+      <LineLength>100</LineLength>
     </Rect1>
   </基准>
   <胶高>
     <value>0</value>
     <min>0</min>
     <max>0</max>
-    <adjust>-2.0000000000000004</adjust>
+    <adjust>-1.2999999999999998</adjust>
   </胶高>
   <胶宽>
     <value>0</value>
@@ -132,8 +149,8 @@
     <max>0</max>
     <adjust>0</adjust>
   </胶线>
-  <BaseRow>991.61663818359375</BaseRow>
-  <BaseColumn>1038.216019665811</BaseColumn>
+  <BaseRow>937.26738440885174</BaseRow>
+  <BaseColumn>925.99110233181773</BaseColumn>
   <TrianEnabled>false</TrianEnabled>
   <PixelResolution>0.01247</PixelResolution>
   <SaveOrigalImage>true</SaveOrigalImage>
@@ -142,5 +159,5 @@
   <ThresholdHigh>100</ThresholdHigh>
   <AreaLow>10</AreaLow>
   <AreaHigh>1000</AreaHigh>
-  <DeepLearningRate>0.1</DeepLearningRate>
+  <DeepLearningRate>3</DeepLearningRate>
 </SpecificationsCam1>

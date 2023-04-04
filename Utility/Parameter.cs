@@ -65,6 +65,8 @@ namespace WY_App.Utility
             public double simga;
 
             public int Index;
+
+            public double LineLength;
         }
         public struct HRect1
         {
@@ -121,7 +123,7 @@ namespace WY_App.Utility
         public class SpecificationsCam1
         {
             public Rect1 矩形检测区域;
-            public Rect1[] 模板区域 = new Rect1[6];
+            public Rect1[] 模板区域 = new Rect1[9];
             public Rect1[] 基准 = new Rect1[3];
 
             public Spec 胶高;
@@ -162,20 +164,13 @@ namespace WY_App.Utility
         }
         public class SpecificationsCam2
         {
-            public Rect1[] 矩形检测区域=new Rect1[3];
-            public Rect1[] 模板区域 = new Rect1[6];
+            public Rect1[] 矩形检测区域 = new Rect1[10];
+            public Rect1[] 模板区域 = new Rect1[20];
             public Rect1[] 基准 = new Rect1[3];
 
-            public Spec 料长;
+            public Spec[] 检测规格 =new Spec[10];
 
-            public Spec 料宽;
-
-            public Spec 胶宽;
-
-            public Spec 短端;
-
-            public Spec 长端;
-
+         
             public double BaseRow;
 
             public double BaseColumn;
@@ -186,13 +181,13 @@ namespace WY_App.Utility
 
             public bool SaveDefeatImage;
 
-            public double[] ThresholdLow = new double[3];
+            public double[] ThresholdLow = new double[10];
 
-            public double[] ThresholdHigh = new double[3];
+            public double[] ThresholdHigh = new double[10];
 
-            public double[] AreaLow = new double[3];
+            public double[] AreaLow = new double[10];
 
-            public double[] AreaHigh = new double[3];
+            public double[] AreaHigh = new double[10];
 
             public double DeepLearningRate;
 
@@ -200,7 +195,7 @@ namespace WY_App.Utility
             public SpecificationsCam2()
             {
                 DeepLearningRate = 0.1;
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     ThresholdLow[i] = 10;
                     ThresholdHigh[i] = 100;

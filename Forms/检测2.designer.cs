@@ -35,6 +35,8 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.uiDoubleUpDown1 = new Sunny.UI.UIDoubleUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.uiComboBox1 = new Sunny.UI.UIComboBox();
             this.uiButton46 = new Sunny.UI.UIButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -64,24 +66,13 @@
             this.btn_加载检测图片 = new Sunny.UI.UIButton();
             this.btn_SaveParams = new Sunny.UI.UIButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.uiButton28 = new Sunny.UI.UIButton();
-            this.uiButton27 = new Sunny.UI.UIButton();
-            this.uiButton26 = new Sunny.UI.UIButton();
-            this.uiButton25 = new Sunny.UI.UIButton();
+            this.uiComboBox3 = new Sunny.UI.UIComboBox();
             this.uiButton24 = new Sunny.UI.UIButton();
             this.uiButton23 = new Sunny.UI.UIButton();
-            this.uiButton1 = new Sunny.UI.UIButton();
-            this.uiButton2 = new Sunny.UI.UIButton();
-            this.uiButton3 = new Sunny.UI.UIButton();
-            this.uiButton4 = new Sunny.UI.UIButton();
-            this.uiButton11 = new Sunny.UI.UIButton();
-            this.uiButton12 = new Sunny.UI.UIButton();
             this.uiButton5 = new Sunny.UI.UIButton();
-            this.uiButton6 = new Sunny.UI.UIButton();
             this.uiButton7 = new Sunny.UI.UIButton();
             this.uiButton8 = new Sunny.UI.UIButton();
             this.uiButton10 = new Sunny.UI.UIButton();
-            this.uiButton9 = new Sunny.UI.UIButton();
             this.chk_SaveOrigalImage = new System.Windows.Forms.CheckBox();
             this.chk_SaveDefeatImage = new System.Windows.Forms.CheckBox();
             this.num_PixelResolution = new Sunny.UI.UIDoubleUpDown();
@@ -94,8 +85,6 @@
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.uiDoubleUpDown1 = new Sunny.UI.UIDoubleUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -174,7 +163,7 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.182321F));
@@ -206,6 +195,38 @@
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // uiDoubleUpDown1
+            // 
+            this.uiDoubleUpDown1.Decimal = 6;
+            this.uiDoubleUpDown1.DecimalPlaces = 6;
+            this.uiDoubleUpDown1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDoubleUpDown1.Location = new System.Drawing.Point(84, 910);
+            this.uiDoubleUpDown1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDoubleUpDown1.Maximum = 1D;
+            this.uiDoubleUpDown1.Minimum = 0D;
+            this.uiDoubleUpDown1.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDoubleUpDown1.Name = "uiDoubleUpDown1";
+            this.uiDoubleUpDown1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiDoubleUpDown1.ShowText = false;
+            this.uiDoubleUpDown1.Size = new System.Drawing.Size(117, 20);
+            this.uiDoubleUpDown1.Step = 0.001D;
+            this.uiDoubleUpDown1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiDoubleUpDown1.TabIndex = 92;
+            this.uiDoubleUpDown1.Text = "uiDoubleUpDown1";
+            this.uiDoubleUpDown1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiDoubleUpDown1.ValueChanged += new Sunny.UI.UIDoubleUpDown.OnValueChanged(this.uiDoubleUpDown1_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(12, 914);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 93;
+            this.label6.Text = "匹配系数";
+            // 
             // uiComboBox1
             // 
             this.uiComboBox1.DataSource = null;
@@ -231,7 +252,7 @@
             this.uiButton46.FillColor = System.Drawing.Color.Black;
             this.uiButton46.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton46.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton46.Location = new System.Drawing.Point(48, 625);
+            this.uiButton46.Location = new System.Drawing.Point(36, 533);
             this.uiButton46.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton46.Name = "uiButton46";
             this.uiButton46.Size = new System.Drawing.Size(96, 28);
@@ -287,7 +308,12 @@
             this.uiComboBox2.Items.AddRange(new object[] {
             "瑕疵检测区域1",
             "瑕疵检测区域2",
-            "瑕疵检测区域3"});
+            "瑕疵检测区域3",
+            "瑕疵检测区域4",
+            "瑕疵检测区域5",
+            "瑕疵检测区域6",
+            "瑕疵检测区域7",
+            "瑕疵检测区域8"});
             this.uiComboBox2.Location = new System.Drawing.Point(7, 22);
             this.uiComboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiComboBox2.MinimumSize = new System.Drawing.Size(63, 0);
@@ -295,7 +321,6 @@
             this.uiComboBox2.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
             this.uiComboBox2.Size = new System.Drawing.Size(134, 25);
             this.uiComboBox2.TabIndex = 92;
-            this.uiComboBox2.Text = "瑕疵检测区域1";
             this.uiComboBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiComboBox2.SelectedIndexChanged += new System.EventHandler(this.uiComboBox2_SelectedIndexChanged);
             // 
@@ -612,7 +637,7 @@
             this.uiButton13.FillColor = System.Drawing.Color.Black;
             this.uiButton13.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton13.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton13.Location = new System.Drawing.Point(183, 625);
+            this.uiButton13.Location = new System.Drawing.Point(182, 533);
             this.uiButton13.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton13.Name = "uiButton13";
             this.uiButton13.Size = new System.Drawing.Size(88, 27);
@@ -668,96 +693,35 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.uiButton28);
-            this.groupBox3.Controls.Add(this.uiButton27);
-            this.groupBox3.Controls.Add(this.uiButton26);
-            this.groupBox3.Controls.Add(this.uiButton25);
+            this.groupBox3.Controls.Add(this.uiComboBox3);
             this.groupBox3.Controls.Add(this.uiButton24);
             this.groupBox3.Controls.Add(this.uiButton23);
-            this.groupBox3.Controls.Add(this.uiButton1);
-            this.groupBox3.Controls.Add(this.uiButton2);
-            this.groupBox3.Controls.Add(this.uiButton3);
-            this.groupBox3.Controls.Add(this.uiButton4);
-            this.groupBox3.Controls.Add(this.uiButton11);
-            this.groupBox3.Controls.Add(this.uiButton12);
             this.groupBox3.Controls.Add(this.uiButton5);
-            this.groupBox3.Controls.Add(this.uiButton6);
             this.groupBox3.Controls.Add(this.uiButton7);
             this.groupBox3.Controls.Add(this.uiButton8);
             this.groupBox3.Controls.Add(this.uiButton10);
-            this.groupBox3.Controls.Add(this.uiButton9);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(4, 405);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(310, 214);
+            this.groupBox3.Size = new System.Drawing.Size(310, 122);
             this.groupBox3.TabIndex = 75;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "直线检测";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // uiButton28
+            // uiComboBox3
             // 
-            this.uiButton28.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton28.FillColor = System.Drawing.Color.Black;
-            this.uiButton28.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton28.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton28.Location = new System.Drawing.Point(249, 175);
-            this.uiButton28.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton28.Name = "uiButton28";
-            this.uiButton28.Size = new System.Drawing.Size(53, 25);
-            this.uiButton28.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton28.TabIndex = 81;
-            this.uiButton28.Text = "设置";
-            this.uiButton28.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton28.Click += new System.EventHandler(this.uiButton28_Click);
-            // 
-            // uiButton27
-            // 
-            this.uiButton27.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton27.FillColor = System.Drawing.Color.Black;
-            this.uiButton27.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton27.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton27.Location = new System.Drawing.Point(249, 144);
-            this.uiButton27.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton27.Name = "uiButton27";
-            this.uiButton27.Size = new System.Drawing.Size(53, 25);
-            this.uiButton27.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton27.TabIndex = 80;
-            this.uiButton27.Text = "设置";
-            this.uiButton27.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton27.Click += new System.EventHandler(this.uiButton27_Click);
-            // 
-            // uiButton26
-            // 
-            this.uiButton26.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton26.FillColor = System.Drawing.Color.Black;
-            this.uiButton26.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton26.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton26.Location = new System.Drawing.Point(251, 113);
-            this.uiButton26.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton26.Name = "uiButton26";
-            this.uiButton26.Size = new System.Drawing.Size(53, 25);
-            this.uiButton26.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton26.TabIndex = 79;
-            this.uiButton26.Text = "设置";
-            this.uiButton26.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton26.Click += new System.EventHandler(this.uiButton26_Click);
-            // 
-            // uiButton25
-            // 
-            this.uiButton25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton25.FillColor = System.Drawing.Color.Black;
-            this.uiButton25.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton25.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton25.Location = new System.Drawing.Point(251, 82);
-            this.uiButton25.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton25.Name = "uiButton25";
-            this.uiButton25.Size = new System.Drawing.Size(53, 25);
-            this.uiButton25.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton25.TabIndex = 78;
-            this.uiButton25.Text = "设置";
-            this.uiButton25.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton25.Click += new System.EventHandler(this.uiButton25_Click);
+            this.uiComboBox3.DataSource = null;
+            this.uiComboBox3.FillColor = System.Drawing.Color.White;
+            this.uiComboBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiComboBox3.Location = new System.Drawing.Point(6, 22);
+            this.uiComboBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiComboBox3.MinimumSize = new System.Drawing.Size(63, 0);
+            this.uiComboBox3.Name = "uiComboBox3";
+            this.uiComboBox3.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.uiComboBox3.Size = new System.Drawing.Size(134, 25);
+            this.uiComboBox3.TabIndex = 101;
+            this.uiComboBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uiButton24
             // 
@@ -765,7 +729,7 @@
             this.uiButton24.FillColor = System.Drawing.Color.Black;
             this.uiButton24.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton24.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton24.Location = new System.Drawing.Point(251, 51);
+            this.uiButton24.Location = new System.Drawing.Point(248, 86);
             this.uiButton24.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton24.Name = "uiButton24";
             this.uiButton24.Size = new System.Drawing.Size(53, 25);
@@ -781,7 +745,7 @@
             this.uiButton23.FillColor = System.Drawing.Color.Black;
             this.uiButton23.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton23.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton23.Location = new System.Drawing.Point(251, 20);
+            this.uiButton23.Location = new System.Drawing.Point(249, 55);
             this.uiButton23.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton23.Name = "uiButton23";
             this.uiButton23.Size = new System.Drawing.Size(53, 25);
@@ -791,109 +755,13 @@
             this.uiButton23.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton23.Click += new System.EventHandler(this.uiButton23_Click);
             // 
-            // uiButton1
-            // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.FillColor = System.Drawing.Color.Black;
-            this.uiButton1.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Location = new System.Drawing.Point(8, 175);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(113, 25);
-            this.uiButton1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton1.TabIndex = 74;
-            this.uiButton1.Text = "绘制模板直线6";
-            this.uiButton1.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
-            // 
-            // uiButton2
-            // 
-            this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton2.FillColor = System.Drawing.Color.Black;
-            this.uiButton2.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton2.Location = new System.Drawing.Point(127, 175);
-            this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton2.Name = "uiButton2";
-            this.uiButton2.Size = new System.Drawing.Size(120, 25);
-            this.uiButton2.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton2.TabIndex = 75;
-            this.uiButton2.Text = "显示直线6结果";
-            this.uiButton2.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click);
-            // 
-            // uiButton3
-            // 
-            this.uiButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton3.FillColor = System.Drawing.Color.Black;
-            this.uiButton3.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton3.Location = new System.Drawing.Point(7, 144);
-            this.uiButton3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton3.Name = "uiButton3";
-            this.uiButton3.Size = new System.Drawing.Size(113, 25);
-            this.uiButton3.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton3.TabIndex = 70;
-            this.uiButton3.Text = "绘制模板直线5";
-            this.uiButton3.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton3.Click += new System.EventHandler(this.uiButton3_Click);
-            // 
-            // uiButton4
-            // 
-            this.uiButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton4.FillColor = System.Drawing.Color.Black;
-            this.uiButton4.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton4.Location = new System.Drawing.Point(6, 113);
-            this.uiButton4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton4.Name = "uiButton4";
-            this.uiButton4.Size = new System.Drawing.Size(113, 25);
-            this.uiButton4.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton4.TabIndex = 71;
-            this.uiButton4.Text = "绘制模板直线4";
-            this.uiButton4.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton4.Click += new System.EventHandler(this.uiButton4_Click);
-            // 
-            // uiButton11
-            // 
-            this.uiButton11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton11.FillColor = System.Drawing.Color.Black;
-            this.uiButton11.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton11.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton11.Location = new System.Drawing.Point(126, 113);
-            this.uiButton11.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton11.Name = "uiButton11";
-            this.uiButton11.Size = new System.Drawing.Size(120, 25);
-            this.uiButton11.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton11.TabIndex = 73;
-            this.uiButton11.Text = "显示直线4结果";
-            this.uiButton11.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton11.Click += new System.EventHandler(this.uiButton11_Click);
-            // 
-            // uiButton12
-            // 
-            this.uiButton12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton12.FillColor = System.Drawing.Color.Black;
-            this.uiButton12.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton12.Location = new System.Drawing.Point(126, 144);
-            this.uiButton12.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton12.Name = "uiButton12";
-            this.uiButton12.Size = new System.Drawing.Size(120, 25);
-            this.uiButton12.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton12.TabIndex = 72;
-            this.uiButton12.Text = "显示直线5结果";
-            this.uiButton12.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton12.Click += new System.EventHandler(this.uiButton12_Click);
-            // 
             // uiButton5
             // 
             this.uiButton5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton5.FillColor = System.Drawing.Color.Black;
             this.uiButton5.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton5.Location = new System.Drawing.Point(6, 20);
+            this.uiButton5.Location = new System.Drawing.Point(6, 55);
             this.uiButton5.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton5.Name = "uiButton5";
             this.uiButton5.Size = new System.Drawing.Size(113, 25);
@@ -903,29 +771,13 @@
             this.uiButton5.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton5.Click += new System.EventHandler(this.uiButton5_Click);
             // 
-            // uiButton6
-            // 
-            this.uiButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton6.FillColor = System.Drawing.Color.Black;
-            this.uiButton6.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton6.Location = new System.Drawing.Point(7, 82);
-            this.uiButton6.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton6.Name = "uiButton6";
-            this.uiButton6.Size = new System.Drawing.Size(113, 25);
-            this.uiButton6.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton6.TabIndex = 65;
-            this.uiButton6.Text = "绘制模板直线3";
-            this.uiButton6.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton6.Click += new System.EventHandler(this.uiButton6_Click);
-            // 
             // uiButton7
             // 
             this.uiButton7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton7.FillColor = System.Drawing.Color.Black;
             this.uiButton7.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton7.Location = new System.Drawing.Point(7, 51);
+            this.uiButton7.Location = new System.Drawing.Point(4, 86);
             this.uiButton7.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton7.Name = "uiButton7";
             this.uiButton7.Size = new System.Drawing.Size(113, 25);
@@ -941,7 +793,7 @@
             this.uiButton8.FillColor = System.Drawing.Color.Black;
             this.uiButton8.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton8.Location = new System.Drawing.Point(126, 51);
+            this.uiButton8.Location = new System.Drawing.Point(123, 86);
             this.uiButton8.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton8.Name = "uiButton8";
             this.uiButton8.Size = new System.Drawing.Size(120, 25);
@@ -957,7 +809,7 @@
             this.uiButton10.FillColor = System.Drawing.Color.Black;
             this.uiButton10.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.uiButton10.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton10.Location = new System.Drawing.Point(125, 20);
+            this.uiButton10.Location = new System.Drawing.Point(123, 55);
             this.uiButton10.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton10.Name = "uiButton10";
             this.uiButton10.Size = new System.Drawing.Size(120, 25);
@@ -966,22 +818,6 @@
             this.uiButton10.Text = "显示直线1结果";
             this.uiButton10.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton10.Click += new System.EventHandler(this.uiButton10_Click);
-            // 
-            // uiButton9
-            // 
-            this.uiButton9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton9.FillColor = System.Drawing.Color.Black;
-            this.uiButton9.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton9.Location = new System.Drawing.Point(126, 82);
-            this.uiButton9.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton9.Name = "uiButton9";
-            this.uiButton9.Size = new System.Drawing.Size(120, 25);
-            this.uiButton9.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton9.TabIndex = 68;
-            this.uiButton9.Text = "显示直线3结果";
-            this.uiButton9.TipsFont = new System.Drawing.Font("微软雅黑", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton9.Click += new System.EventHandler(this.uiButton9_Click);
             // 
             // chk_SaveOrigalImage
             // 
@@ -1149,38 +985,6 @@
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // uiDoubleUpDown1
-            // 
-            this.uiDoubleUpDown1.Decimal = 6;
-            this.uiDoubleUpDown1.DecimalPlaces = 6;
-            this.uiDoubleUpDown1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiDoubleUpDown1.Location = new System.Drawing.Point(84, 910);
-            this.uiDoubleUpDown1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiDoubleUpDown1.Maximum = 1D;
-            this.uiDoubleUpDown1.Minimum = 0D;
-            this.uiDoubleUpDown1.MinimumSize = new System.Drawing.Size(100, 0);
-            this.uiDoubleUpDown1.Name = "uiDoubleUpDown1";
-            this.uiDoubleUpDown1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiDoubleUpDown1.ShowText = false;
-            this.uiDoubleUpDown1.Size = new System.Drawing.Size(117, 20);
-            this.uiDoubleUpDown1.Step = 0.001D;
-            this.uiDoubleUpDown1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiDoubleUpDown1.TabIndex = 92;
-            this.uiDoubleUpDown1.Text = "uiDoubleUpDown1";
-            this.uiDoubleUpDown1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiDoubleUpDown1.ValueChanged += new Sunny.UI.UIDoubleUpDown.OnValueChanged(this.uiDoubleUpDown1_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(12, 914);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 93;
-            this.label6.Text = "匹配系数";
-            // 
             // 检测2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1249,16 +1053,10 @@
         private Sunny.UI.UIButton btn_加载检测图片;
         private Sunny.UI.UIButton btn_SaveParams;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Sunny.UI.UIButton uiButton3;
-        private Sunny.UI.UIButton uiButton4;
-        private Sunny.UI.UIButton uiButton11;
-        private Sunny.UI.UIButton uiButton12;
         private Sunny.UI.UIButton uiButton5;
-        private Sunny.UI.UIButton uiButton6;
         private Sunny.UI.UIButton uiButton7;
         private Sunny.UI.UIButton uiButton8;
         private Sunny.UI.UIButton uiButton10;
-        private Sunny.UI.UIButton uiButton9;
         private System.Windows.Forms.CheckBox chk_SaveOrigalImage;
         private System.Windows.Forms.CheckBox chk_SaveDefeatImage;
         private Sunny.UI.UIDoubleUpDown num_PixelResolution;
@@ -1266,20 +1064,15 @@
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.Label label1;
         private Sunny.UI.UIComboBox uiComboBox2;
-        private Sunny.UI.UIButton uiButton1;
-        private Sunny.UI.UIButton uiButton2;
         private Sunny.UI.UIButton uiButton22;
         private Sunny.UI.UIButton uiButton21;
         private Sunny.UI.UIButton uiButton20;
-        private Sunny.UI.UIButton uiButton28;
-        private Sunny.UI.UIButton uiButton27;
-        private Sunny.UI.UIButton uiButton26;
-        private Sunny.UI.UIButton uiButton25;
         private Sunny.UI.UIButton uiButton24;
         private Sunny.UI.UIButton uiButton23;
         private Sunny.UI.UIButton uiButton29;
         private Sunny.UI.UIDoubleUpDown uiDoubleUpDown1;
         private System.Windows.Forms.Label label6;
-    }
+		private Sunny.UI.UIComboBox uiComboBox3;
+	}
 }
 

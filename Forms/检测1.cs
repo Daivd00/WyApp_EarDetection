@@ -173,8 +173,8 @@ namespace WY_App
                 System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start(); //  开始监视代码运行时间
                 //HOperatorSet.DispObj(hImage, hWindow);
-                Halcon.DetectionHalconLine(i,hWindow, hImage, Parameter.specificationsCam1[i].基准[0], 200, ref BaseReault[0]);
-                Halcon.DetectionHalconLine(i,hWindow, hImage, Parameter.specificationsCam1[i].基准[1], 200, ref BaseReault[1]);
+                Halcon.DetectionHalconLine(i,hWindow, hImage, Parameter.specificationsCam1[i].基准[0], ref BaseReault[0]);
+                Halcon.DetectionHalconLine(i,hWindow, hImage, Parameter.specificationsCam1[i].基准[1], ref BaseReault[1]);
 
                 HTuple angle, Row, Column, IsOverlapping;
                 HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
@@ -197,71 +197,67 @@ namespace WY_App
                 HOperatorSet.AffineTransImage(ImageAffineTran, out ImageAffineTrans, HomMat2DRotate, "constant", "false");
                 HOperatorSet.AffineTransImage(ImageAffineTran, out 主窗体.hImage[i], HomMat2DRotate, "constant", "false");
                 HOperatorSet.DispObj(ImageAffineTrans, hWindow);
-                Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].基准[0], 200, ref BaseReault[0]);
-                Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].基准[1], 200, ref BaseReault[1]);
-                resultvalue[0] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[0], 100, ref pointReault[0]);
-                resultvalue[1] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[1], 100, ref pointReault[1]);
-                resultvalue[2] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[2], 100, ref pointReault[2]);
-                resultvalue[3] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[3], 100, ref pointReault[3]);
-                if (resultvalue[3])
+                Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].基准[0], ref BaseReault[0]);
+                Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].基准[1], ref BaseReault[1]);
+                resultvalue[0] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[0], ref pointReault[0]);
+                resultvalue[1] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[1], ref pointReault[1]);
+                resultvalue[2] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[2], ref pointReault[2]);
+                if (i == 1)
                 {
-                    if(i== 1)
+                    Parameter.specificationsCam1[i].模板区域[4].LineLength = Parameter.specificationsCam1[i].模板区域[3].LineLength;
+                    Parameter.specificationsCam1[i].模板区域[4].Row1 = BaseReault[1].Row1 + Parameter.specificationsCam1[i].模板区域[4].LineLength+20;
+                    Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[2].Colum1;
+                    Parameter.specificationsCam1[i].模板区域[4].Row2 = BaseReault[1].Row2 + Parameter.specificationsCam1[i].模板区域[4].LineLength+20;
+                    Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[2].Colum2;
+
+                    resultvalue[4] = Halcon.DetectionHalconLine(i, hWindow, 主窗体.hImage[i], Parameter.specificationsCam1[i].模板区域[4], ref pointReault[4]);
+                    if (resultvalue[4])
                     {
-                        Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[3].Row1 + 40;
-                        Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[2].Colum1;
-                        Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[3].Row2 + 40;
-                        Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[2].Colum2;
-                        resultvalue[4] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], 30, ref pointReault[4]);
+                        Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[4].Row1 - Parameter.specificationsCam1[i].模板区域[4].LineLength / 3+20;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
+                        Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[4].Row2 - Parameter.specificationsCam1[i].模板区域[4].LineLength / 3+20;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
+                        Parameter.specificationsCam1[i].模板区域[4].LineLength = Math.Abs(Math.Abs(pointReault[4].Row1.D - BaseReault[1].Row2.D) / 2 - 10);
+                        Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], ref pointReault[5]);
 
-                        if (resultvalue[4])
-                        {
-
-                            Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[4].Row1 - (pointReault[4].Row1 - pointReault[3].Row1) / 2;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
-                            Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[4].Row2 - (pointReault[4].Row1 - pointReault[3].Row1) / 2;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
-                            resultvalue[5] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], (pointReault[4].Row1 - pointReault[3].Row1) / 8, ref pointReault[5]);
-
-                            Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[4].Row1 + 20;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
-                            Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[4].Row2 + 20;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
-                            resultvalue[6] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], 10, ref pointReault[6]);
-                        }
+                        Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[4].Row1 + Parameter.specificationsCam1[i].模板区域[4].LineLength / 3+20;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
+                        Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[4].Row2 + Parameter.specificationsCam1[i].模板区域[4].LineLength / 3+20;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
+                        Parameter.specificationsCam1[i].模板区域[4].LineLength = Parameter.specificationsCam1[i].模板区域[3].LineLength / 2;
+                        Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], ref pointReault[6]);
                     }
-                    else
-                    {
-                        Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[3].Row1 - 40;
-                        Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[2].Colum1;
-                        Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[3].Row2 - 40;
-                        Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[2].Colum2;
-                        resultvalue[4] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], 30, ref pointReault[4]);
-
-                        if (resultvalue[4])
-                        {
-
-                            Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[4].Row1 + (pointReault[4].Row1 + pointReault[3].Row1) / 2;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
-                            Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[4].Row2 + (pointReault[4].Row1 + pointReault[3].Row1) / 2;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
-                            resultvalue[5] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], (pointReault[3].Row1 - pointReault[4].Row1) / 8, ref pointReault[5]);
-
-                            Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[4].Row1 - 20;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
-                            Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[4].Row2 - 20;
-                            Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
-                            resultvalue[6] = Halcon.DetectionHalconLine(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], 10, ref pointReault[6]);
-                        }
-                    }
-                    
                 }
-                Halcon.DetectionHalconRect(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].矩形检测区域, ref result[3]);
+                else
+                {
+                    Parameter.specificationsCam1[i].模板区域[4].LineLength = Parameter.specificationsCam1[i].模板区域[3].LineLength;
+                    Parameter.specificationsCam1[i].模板区域[4].Row1 = BaseReault[1].Row1 - Parameter.specificationsCam1[i].模板区域[4].LineLength - 20;
+                    Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[2].Colum1;
+                    Parameter.specificationsCam1[i].模板区域[4].Row2 = BaseReault[1].Row2 - Parameter.specificationsCam1[i].模板区域[4].LineLength - 20;
+                    Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[2].Colum2;
+                    resultvalue[4] = Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], ref pointReault[4]);
+                    if (resultvalue[4])
+                    {
+                        Parameter.specificationsCam1[i].模板区域[4].Row1 = (pointReault[4].Row1 + BaseReault[1].Row2) / 2;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
+                        Parameter.specificationsCam1[i].模板区域[4].Row2 = (pointReault[4].Row1 + BaseReault[1].Row2) / 2;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
+                        Parameter.specificationsCam1[i].模板区域[4].LineLength = Math.Abs(Math.Abs(pointReault[4].Row1.D - BaseReault[1].Row2.D) / 2 - 10);
+                        Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], ref pointReault[5]);
 
+                        Parameter.specificationsCam1[i].模板区域[4].Row1 = pointReault[4].Row1 - Parameter.specificationsCam1[i].模板区域[4].LineLength / 3 - 20;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum1 = pointReault[4].Colum1;
+                        Parameter.specificationsCam1[i].模板区域[4].Row2 = pointReault[4].Row2 - Parameter.specificationsCam1[i].模板区域[4].LineLength / 3 - 20;
+                        Parameter.specificationsCam1[i].模板区域[4].Colum2 = pointReault[4].Colum2;
+                        Parameter.specificationsCam1[i].模板区域[4].LineLength = Parameter.specificationsCam1[i].模板区域[3].LineLength/2;
+                        Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].模板区域[4], ref pointReault[6]);
+                    }
+                }
                 
-
+                Halcon.DetectionHalconRect(i,hWindow, ImageAffineTrans, Parameter.specificationsCam1[i].矩形检测区域, ref result[3]);
                 HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
                     BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out Row, out Column, out IsOverlapping);
-                bool resultdpl = false;
+                bool resultdpl = false;//false
                 Halcon.DetectionHalconDeepLearning(i,hWindow, ImageAffineTrans, hv_DLModelHandle[i], hv_DLPreprocessParam[i], hv_InferenceClassificationThreshold[i], hv_InferenceSegmentationThreshold[i], Row, Column, ref resultdpl);
                 if(resultvalue[5] || resultvalue[6] || !resultdpl)
                 {
@@ -290,7 +286,7 @@ namespace WY_App
                 }
                 HOperatorSet.WriteString(hWindow, "胶宽" + value[0]);
                 HOperatorSet.DistanceSs(pointReault[2].Row1, pointReault[2].Colum1, pointReault[2].Row2, pointReault[2].Colum2,
-                    pointReault[3].Row1, pointReault[3].Colum1, pointReault[3].Row2, pointReault[3].Colum2, out minDistance, out maxDistance);
+                    BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out minDistance, out maxDistance);
                 HOperatorSet.SetTposition(hWindow, 200, 100);
                 value[1] = minDistance * Parameter.specificationsCam1[i].PixelResolution + Parameter.specificationsCam1[i].胶高.adjust;
 
@@ -306,10 +302,10 @@ namespace WY_App
                     HOperatorSet.SetColor(hWindow, "green");
                 }
                 HOperatorSet.WriteString(hWindow, "胶高" + value[1]);
-                HOperatorSet.DistanceSs(pointReault[3].Row1, pointReault[3].Colum1, pointReault[3].Row2, pointReault[3].Colum2,
+                HOperatorSet.DistanceSs(BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2,
                     pointReault[4].Row1, pointReault[4].Colum1, pointReault[4].Row2, pointReault[4].Colum2, out minDistance, out maxDistance);
                 HOperatorSet.SetTposition(hWindow, 300, 100);
-                value[2] = Math.Abs ( pointReault[4].Row1.D- pointReault[3].Row1.D) * Parameter.specificationsCam1[i].PixelResolution + Parameter.specificationsCam1[i].胶线.adjust;
+                value[2] = Math.Abs ( pointReault[4].Row1.D- BaseReault[1].Row1.D) * Parameter.specificationsCam1[i].PixelResolution + Parameter.specificationsCam1[i].胶线.adjust;
 
                 if (value[2] - Parameter.specificationsCam1[0].胶线.value < Parameter.specificationsCam1[0].胶线.min ||
                     value[2] - Parameter.specificationsCam1[0].胶线.value > Parameter.specificationsCam1[0].胶线.max)
@@ -385,8 +381,7 @@ namespace WY_App
         private void btn_显示检测区域_Click(object sender, EventArgs e)
         { 
             bool result = true;
-            HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex],hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconRect0(uiComboBox1.SelectedIndex,hWindowControl1.HalconWindow,主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].矩形检测区域,ref result);
+            Halcon.DetectionHalconRect(uiComboBox1.SelectedIndex,hWindowControl1.HalconWindow,主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].矩形检测区域,ref result);
         }
 
         private void num_PixelResolution_ValueChanged(object sender, double value)
@@ -466,74 +461,75 @@ namespace WY_App
         private void uiButton10_Click(object sender, EventArgs e)
         {
             
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex,hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[0], 100, ref pointReault[0]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex,hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[0], ref pointReault[0]);
 
         }
 
         private void uiButton8_Click(object sender, EventArgs e)
         {         
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[1], 100,  ref pointReault[1]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[1],  ref pointReault[1]);
 
         }
 
         private void uiButton9_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[2], 100, ref pointReault[2]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[2], ref pointReault[2]);
         }
+
+
+
 
         private void uiButton11_Click(object sender, EventArgs e)
         {
-            bool result = Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[3], 100, ref pointReault[3]);
-            if(uiComboBox1.SelectedIndex==1)
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[0], ref BaseReault[0]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
+            bool result = false;
+            //= Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[3],  ref pointReault[3]);
+            if (uiComboBox1.SelectedIndex == 1)
             {
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength = Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[3].LineLength;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = BaseReault[1].Row1 + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[2].Colum1;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = BaseReault[1].Row2 + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[2].Colum2;
+
+                result = Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], ref pointReault[4]);
                 if (result)
                 {
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[3].Row1 + 40;
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[2].Colum1;
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[3].Row2 + 40;
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[2].Colum2;
-                    result = Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], 20, ref pointReault[4]);
-                    if (result)
-                    {
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 - 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 - 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
-                        Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], 10, ref pointReault[5]);
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 - Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 - Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
+                    Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], ref pointReault[5]);
 
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 + 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 + 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
-                        Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], 10, ref pointReault[6]);
-
-                    }
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
+                    Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], ref pointReault[6]);
                 }
             }
             else
             {
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength = Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[3].LineLength;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = BaseReault[1].Row1 - Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength - 10;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[2].Colum1;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = BaseReault[1].Row2 - Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength - 10;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[2].Colum2;
+                result = Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], ref pointReault[4]);
                 if (result)
                 {
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[3].Row1 - 40;
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[2].Colum1;
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[3].Row2 - 40;
-                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[2].Colum2;
-                    result = Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], 20, ref pointReault[4]);
-                    if (result)
-                    {
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 + 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 + 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
-                        Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], 10, ref pointReault[5]);
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2 - 10;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2 - 10;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
+                    Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], ref pointReault[5]);
 
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 - 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 - 20;
-                        Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
-                        Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], 10, ref pointReault[6]);
-
-                    }
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row1 = pointReault[4].Row1 - Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2 - 10;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum1 = pointReault[4].Colum1;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Row2 = pointReault[4].Row2 - Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].LineLength / 2 - 10;
+                    Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4].Colum2 = pointReault[4].Colum2;
+                    Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].模板区域[4], ref pointReault[6]);
                 }
             }
                   
@@ -584,7 +580,7 @@ namespace WY_App
         private void uiButton18_Click(object sender, EventArgs e)
         {
             HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[0], 200, ref BaseReault[0]);            
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[0],ref BaseReault[0]);            
         }
 
         private void uiButton21_Click(object sender, EventArgs e)
@@ -601,13 +597,13 @@ namespace WY_App
         private void uiButton17_Click(object sender, EventArgs e)
         {
             HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[1], 200, ref BaseReault[1]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
         }
 
         private void uiButton19_Click(object sender, EventArgs e)
         {
             HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[2], 200, ref BaseReault[2]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[2], ref BaseReault[2]);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -617,53 +613,61 @@ namespace WY_App
 
         private void uiButton46_Click(object sender, EventArgs e)
         {
-            HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex],hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[0], 200, ref BaseReault[0]);
+            try
+            {
+                HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[0], ref BaseReault[0]);
 
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[1], 200, ref BaseReault[1]);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
 
-            HTuple Row, Column, IsOverlapping;
-            HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
-                BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out Row, out Column, out IsOverlapping);
-            Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseRow = Row;
-            Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseColumn = Column;
-            HOperatorSet.DispCross(hWindowControl1.HalconWindow, Row, Column, 60, 0);
-            Row.Dispose();
-            Column.Dispose();
-            IsOverlapping.Dispose();         
+                HTuple Row, Column, IsOverlapping;
+                HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
+                    BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out Row, out Column, out IsOverlapping);
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseRow = Row;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseColumn = Column;
+                HOperatorSet.DispCross(hWindowControl1.HalconWindow, Row, Column, 60, 0);
+                Row.Dispose();
+                Column.Dispose();
+                IsOverlapping.Dispose();
 
-            HTuple angle;
-            HOperatorSet.AngleLx(BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out angle);
-            HTuple HomMat2DIdentity;
-            HTuple HomMat2DRotate;
-            HOperatorSet.HomMat2dIdentity(out HomMat2DIdentity);
-            HOperatorSet.HomMat2dRotate(HomMat2DIdentity, -angle, Row, Column, out HomMat2DRotate);
-            HOperatorSet.AffineTransImage(主窗体.hImage[uiComboBox1.SelectedIndex], out 主窗体.hImage[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
+                HTuple angle;
+                HOperatorSet.AngleLx(BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out angle);
+                HTuple HomMat2DIdentity;
+                HTuple HomMat2DRotate;
+                HOperatorSet.HomMat2dIdentity(out HomMat2DIdentity);
+                HOperatorSet.HomMat2dRotate(HomMat2DIdentity, -angle, Row, Column, out HomMat2DRotate);
+                HOperatorSet.AffineTransImage(主窗体.hImage[uiComboBox1.SelectedIndex], out 主窗体.hImage[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
 
-            HomMat2DIdentity.Dispose();
-            HomMat2DRotate.Dispose();
+                HomMat2DIdentity.Dispose();
+                HomMat2DRotate.Dispose();
 
-            HOperatorSet.HomMat2dIdentity(out HomMat2DIdentity);
-            HOperatorSet.HomMat2dTranslate(HomMat2DIdentity, -Row + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseRow, -Column + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseColumn, out HomMat2DRotate);
-            HOperatorSet.AffineTransImage(主窗体.hImage[uiComboBox1.SelectedIndex], out 主窗体.hImage[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
+                HOperatorSet.HomMat2dIdentity(out HomMat2DIdentity);
+                HOperatorSet.HomMat2dTranslate(HomMat2DIdentity, -Row + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseRow, -Column + Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseColumn, out HomMat2DRotate);
+                HOperatorSet.AffineTransImage(主窗体.hImage[uiComboBox1.SelectedIndex], out 主窗体.hImage[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
 
-            HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[0], 200, ref BaseReault[0]);
+                HOperatorSet.DispObj(主窗体.hImage[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[0], ref BaseReault[0]);
 
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[1], 200, ref BaseReault[1]);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage[uiComboBox1.SelectedIndex], Parameter.specificationsCam1[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
 
-            HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
-                BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out Row, out Column, out IsOverlapping);
-            Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseRow = Row;
-            Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseColumn = Column;
-            HOperatorSet.DispCross(hWindowControl1.HalconWindow, Row, Column, 60, 0);
-            Row.Dispose();
-            Column.Dispose();
-            IsOverlapping.Dispose();
+                HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
+                    BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out Row, out Column, out IsOverlapping);
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseRow = Row;
+                Parameter.specificationsCam1[uiComboBox1.SelectedIndex].BaseColumn = Column;
+                HOperatorSet.DispCross(hWindowControl1.HalconWindow, Row, Column, 60, 0);
+                Row.Dispose();
+                Column.Dispose();
+                IsOverlapping.Dispose();
 
 
 
-            XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[uiComboBox1.SelectedIndex], "Parameter/Cam1Specifications"+ uiComboBox1.SelectedIndex + ".xml");
+                XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[uiComboBox1.SelectedIndex], "Parameter/Cam1Specifications" + uiComboBox1.SelectedIndex + ".xml");
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void num_ThresholdLow_ValueChanged(object sender, double value)

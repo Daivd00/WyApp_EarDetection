@@ -34,15 +34,17 @@ namespace WY_App
                     Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].阈值  = num_yuzhi.Value;
                     Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].simga = num_sigma.Value;
                     Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].LineLength = (int)Linelength.Value;
                     Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].极性 = cmb_极性.Text;
 
                     XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[0], "Parameter/Cam1Specifications" + 0 + ".xml");
                 }
                 else
                 {
-                    Parameter.specificationsCam1[主窗体.formloadIndex-3].模板区域[主窗体.LineIndex - 3].阈值 = num_yuzhi.Value;
+                    Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].阈值 = num_yuzhi.Value;
                     Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].simga = num_sigma.Value;
                     Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].LineLength = (int)Linelength.Value;
                     Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].极性 = cmb_极性.Text;
                     XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[1], "Parameter/Cam1Specifications" + 1 + ".xml");
                 }
@@ -55,6 +57,7 @@ namespace WY_App
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].阈值 = num_yuzhi.Value;
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].simga = num_sigma.Value;
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].LineLength = (int)Linelength.Value;
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].极性 = cmb_极性.Text;
                     XMLHelper.serialize<Parameter.SpecificationsCam2>(Parameter.specificationsCam2[0], "Parameter/Cam2Specifications" + 0 + ".xml");
                 }
@@ -63,6 +66,7 @@ namespace WY_App
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].阈值 = num_yuzhi.Value;
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].simga = num_sigma.Value;
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].LineLength = (int)Linelength.Value;
                     Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].极性 = cmb_极性.Text;
                     XMLHelper.serialize<Parameter.SpecificationsCam2>(Parameter.specificationsCam2[1], "Parameter/Cam2Specifications" + 1 + ".xml");
                 }
@@ -79,13 +83,16 @@ namespace WY_App
                     num_yuzhi.Value = Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].阈值;
                     num_sigma.Value = Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].simga;
                     num_Index.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].基准[主窗体.LineIndex].Index;
+                    Linelength.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].基准[主窗体.LineIndex].LineLength;
                     cmb_极性.Text = Parameter.specificationsCam1[主窗体.formloadIndex - 3].基准[主窗体.LineIndex].极性;
+
                 }
                 else
                 {
                     num_yuzhi.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].阈值;
                     num_sigma.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].simga;
                     num_Index.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].Index;
+                    Linelength.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].LineLength;
                     cmb_极性.Text = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].极性;
                 }
             }
@@ -97,6 +104,7 @@ namespace WY_App
                     num_yuzhi.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].阈值;
                     num_sigma.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].simga;
                     num_Index.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].Index;
+                    Linelength.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].LineLength;
                     cmb_极性.Text = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].极性;
                 }
                 else
@@ -104,6 +112,7 @@ namespace WY_App
                     num_yuzhi.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].阈值;
                     num_sigma.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].simga;
                     num_Index.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex-3].Index;
+                    Linelength.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex-3].LineLength;
                     cmb_极性.Text = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].极性;
                 }
             }
@@ -116,6 +125,7 @@ namespace WY_App
             num_sigma.Enabled = true;
             num_Index.Enabled = true;
             cmb_极性.Enabled = true;
+            Linelength.Enabled = true;
         }
     }
 }

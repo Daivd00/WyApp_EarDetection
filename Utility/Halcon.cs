@@ -237,7 +237,7 @@ namespace WY_App.Utility
         /// <param name="rect1"></param>
         /// <param name="PointXY"></param>
         /// <returns></returns>
-        public static bool DetectionHalconLine(int i,HWindow hWindow, HObject hImage, Parameter.Rect1 rect1, HTuple length, ref HRect1 PointXY)
+        public static bool DetectionHalconLine(int i,HWindow hWindow, HObject hImage, Parameter.Rect1 rect1, ref HRect1 PointXY)
         {
             HObject ho_Contours, ho_Cross, ho_Contour;
 
@@ -267,7 +267,7 @@ namespace WY_App.Utility
                 //添加测量对象
                 HOperatorSet.SetMetrologyModelImageSize(hv_MetrologyHandle, hv_Width[i], hv_Height[i]);
                 hv_Index.Dispose();
-                HOperatorSet.AddMetrologyObjectGeneric(hv_MetrologyHandle, "line", hv_shapeParam, length, 3, rect1.simga, rect1.阈值, new HTuple(), new HTuple(), out hv_Index);
+                HOperatorSet.AddMetrologyObjectGeneric(hv_MetrologyHandle, "line", hv_shapeParam, rect1.LineLength, 3, rect1.simga, rect1.阈值, new HTuple(), new HTuple(), out hv_Index);
 
                 //执行测量，获取边缘点集
                 HOperatorSet.SetColor(hWindow, "yellow");
@@ -323,89 +323,7 @@ namespace WY_App.Utility
             //释放测量句柄
             
         }
-        public static void DetectionHalconRect0(int i, HWindow hWindow, HObject hImage, Parameter.Rect1 rect1, ref bool result)
-        {
-            HObject ho_Rectangle, ho_ImageReduced;
-            HObject ho_Regions, ho_ConnectedRegions;
-            HObject ho_SelectedRegions;
 
-            // Local control variables 
-
-            HTuple hv_WindowHandle = new HTuple(), hv_Row1 = new HTuple();
-            HTuple hv_Column1 = new HTuple(), hv_Row2 = new HTuple();
-            HTuple hv_Column2 = new HTuple(), hv_Area = new HTuple();
-            HTuple hv_Number = new HTuple(), hv_Index = new HTuple();
-            HTuple hv_Area1 = new HTuple();
-
-            // Initialize local and output iconic variables 
-
-            HOperatorSet.GenEmptyObj(out ho_Rectangle);
-            HOperatorSet.GenEmptyObj(out ho_ImageReduced);
-            HOperatorSet.GenEmptyObj(out ho_Regions);
-            HOperatorSet.GenEmptyObj(out ho_ConnectedRegions);
-            HOperatorSet.GenEmptyObj(out ho_SelectedRegions);
-            //dev_open_window(...);
-
-            HOperatorSet.SetColor(hWindow, "green");
-            HOperatorSet.SetDraw(hWindow, "margin");
-            ho_Rectangle.Dispose();
-            HOperatorSet.GenRectangle1(out ho_Rectangle, rect1.Row1, rect1.Colum1, rect1.Row2, rect1.Colum2);
-            HOperatorSet.DispObj(ho_Rectangle, hWindow);
-            ho_ImageReduced.Dispose();
-            HOperatorSet.ReduceDomain(hImage, ho_Rectangle, out ho_ImageReduced);
-            ho_Regions.Dispose();
-
-
-            HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, Parameter.specificationsCam1[i].ThresholdLow, Parameter.specificationsCam1[i].ThresholdHigh);
-            ho_ConnectedRegions.Dispose();
-            HOperatorSet.Connection(ho_Regions, out ho_ConnectedRegions);
-            HOperatorSet.SetColor(hWindow, "red");
-            ho_SelectedRegions.Dispose();
-            HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area", "and", Parameter.specificationsCam1[i].AreaLow, Parameter.specificationsCam1[i].AreaHigh);
-            HOperatorSet.DispObj(ho_SelectedRegions, hWindow);;
-            hv_Area.Dispose(); hv_Row1.Dispose(); hv_Column1.Dispose();
-            HOperatorSet.AreaCenter(ho_SelectedRegions, out hv_Area, out hv_Row1, out hv_Column1);
-            hv_Number.Dispose();
-            HOperatorSet.CountObj(ho_SelectedRegions, out hv_Number);
-            HTuple end_val13 = hv_Number - 1;
-            HTuple step_val13 = 1;
-            for (hv_Index = 0; hv_Index.Continue(end_val13, step_val13); hv_Index = hv_Index.TupleAdd(step_val13))
-            {
-                using (HDevDisposeHelper dh = new HDevDisposeHelper())
-                {
-                    HOperatorSet.SetTposition(hWindow, hv_Row1.TupleSelect(hv_Index), hv_Column1.TupleSelect(hv_Index));
-                }
-                using (HDevDisposeHelper dh = new HDevDisposeHelper())
-                {
-                    HOperatorSet.WriteString(hWindow, hv_Area.TupleSelect(hv_Index));
-                }
-            }
-            hv_Area1.Dispose(); hv_Row1.Dispose(); hv_Column1.Dispose();
-            
-            if (hv_Number == 0)
-            {
-                result = true;
-            }
-            else
-            {
-                result = false;
-            }
-            ho_Rectangle.Dispose();
-            ho_ImageReduced.Dispose();
-            ho_Regions.Dispose();
-            ho_ConnectedRegions.Dispose();
-            ho_SelectedRegions.Dispose();
-            hv_WindowHandle.Dispose();
-            hv_Row1.Dispose();
-            hv_Column1.Dispose();
-            hv_Row2.Dispose();
-            hv_Column2.Dispose();
-            hv_Area.Dispose();
-            hv_Number.Dispose();
-            hv_Index.Dispose();
-            hv_Area1.Dispose();
-            //return true;
-        }
 
         public static void DetectionHalconRect(int i, HWindow hWindow, HObject hImage, Parameter.Rect1 rect1, ref bool result)
         {
@@ -643,7 +561,7 @@ namespace WY_App.Utility
             HObject ho_SelectedRegions;
 
             // Local control variables 
-
+            HTuple hv_Number = new HTuple();
             HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
             HTuple hv_WindowHandle = new HTuple(), hv_Row1 = new HTuple();
             HTuple hv_Column1 = new HTuple(), hv_Row2 = new HTuple();
@@ -682,10 +600,21 @@ namespace WY_App.Utility
             //HOperatorSet.DispObj(ho_ImagePart, hWindow);
             ho_SelectedRegions.Dispose();
             HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area","and", Parameter.specificationsCam2[i].AreaLow[j], Parameter.specificationsCam2[i].AreaHigh[j]);
-            HOperatorSet.SetColor(hWindow, "red");
+            HOperatorSet.SetColor(hWindow, "red");//red
             HOperatorSet.SetDraw(hWindow, "margin");
 
             HOperatorSet.DispObj(ho_SelectedRegions, hWindow);
+            hv_Number.Dispose();
+            HOperatorSet.CountObj(ho_SelectedRegions, out hv_Number);
+
+            if (hv_Number == 0)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
 
             ho_Rectangle.Dispose();
             ho_ImageReduced.Dispose();
@@ -758,7 +687,7 @@ namespace WY_App.Utility
             HOperatorSet.GenEmptyObj(out ho_ImageReduced);
             HOperatorSet.GenEmptyObj(out ho_ImagePart);
             HOperatorSet.SetDraw(hWindow, "margin");
-            if (0 == i)//N1区域设置
+            if (0 == i)//N1区域深度学习设置
             {
                 using (HDevDisposeHelper dh = new HDevDisposeHelper())
                 {
@@ -814,7 +743,7 @@ namespace WY_App.Utility
                 result = false;
                 using (HDevDisposeHelper dh = new HDevDisposeHelper())
                 {
-                    HOperatorSet.SetColor(hWindow, "red");
+                    HOperatorSet.SetColor(hWindow, "red"); //red
                     HOperatorSet.WriteString(hWindow, "NG" + hv_anomaly_score);
                 }
             }
@@ -827,7 +756,7 @@ namespace WY_App.Utility
             hv_anomaly_score.Dispose();
         }
 
-        public static void DetectionHalconDeepLearning1(int i, HWindow hWindow, HObject hImage, HTuple hv_DLModelHandle, HTuple hv_DLPreprocessParam, HTuple hv_InferenceClassificationThreshold, HTuple hv_InferenceSegmentationThreshold, HTuple RowY1, HTuple ColumX, ref bool result)
+        public static void DetectionHalconDeepLearning1(int i, HWindow hWindow, HObject hImage, HTuple hv_DLModelHandle, HTuple hv_DLPreprocessParam, HTuple hv_InferenceClassificationThreshold, HTuple hv_InferenceSegmentationThreshold, Rect1 rect1, ref bool result)
         {
             HObject ho_Rectangle;
             HObject ho_ImageReduced, ho_ImagePart;
@@ -839,30 +768,14 @@ namespace WY_App.Utility
             HOperatorSet.GenEmptyObj(out ho_ImageReduced);
             HOperatorSet.GenEmptyObj(out ho_ImagePart);
             HOperatorSet.SetDraw(hWindow, "margin");
-            if (0 == i)//N1区域设置  区域未测试，待修改
-            {
+            
                 using (HDevDisposeHelper dh = new HDevDisposeHelper())
                 {
                     ho_Rectangle.Dispose();
-                    HOperatorSet.GenRectangle1(out ho_Rectangle, RowY1 + 300, ColumX + 50, RowY1 + 500, ColumX + 1950);
+                    HOperatorSet.GenRectangle1(out ho_Rectangle, rect1.Row1, rect1.Colum1, rect1.Row2, rect1.Colum2);
                 }
-                using (HDevDisposeHelper dh = new HDevDisposeHelper())
-                {
-                    HOperatorSet.DispRectangle1(hWindow, RowY1 + 300, ColumX + 50, RowY1 + 500, ColumX + 1950);
-                }
-            }
-            else//N2区域设置
-            {
-                using (HDevDisposeHelper dh = new HDevDisposeHelper())
-                {
-                    ho_Rectangle.Dispose();
-                    HOperatorSet.GenRectangle1(out ho_Rectangle, RowY1 + 600, ColumX + 50, RowY1 + 800, ColumX + 1950);
-                }
-                using (HDevDisposeHelper dh = new HDevDisposeHelper())
-                {
-                    HOperatorSet.DispRectangle1(hWindow, RowY1 + 600, ColumX + 50, RowY1 + 800, ColumX + 1950);
-                }
-            }
+               
+            
             ho_ImageReduced.Dispose();
             HOperatorSet.ReduceDomain(hImage, ho_Rectangle, out ho_ImageReduced);
             ho_ImagePart.Dispose();
@@ -878,7 +791,7 @@ namespace WY_App.Utility
             hv_DLResult.Dispose();
             HOperatorSet.ApplyDlModel(hv_DLModelHandle, hv_DLSample, new HTuple(), out hv_DLResult);
             HDevelopExport.threshold_dl_anomaly_results(hv_InferenceSegmentationThreshold, hv_InferenceClassificationThreshold, hv_DLResult);
-            HOperatorSet.SetTposition(hWindow, RowY1+500, ColumX);
+            HOperatorSet.SetTposition(hWindow, rect1.Row1, rect1.Colum1);
             hv_anomaly_score.Dispose();
             HOperatorSet.GetDictTuple(hv_DLResult, "anomaly_score", out hv_anomaly_score);
             if (hv_anomaly_score <= Parameter.specificationsCam2[i].DeepLearningRate)
@@ -898,6 +811,10 @@ namespace WY_App.Utility
                     HOperatorSet.SetColor(hWindow, "red");
                     HOperatorSet.WriteString(hWindow, "NG" + hv_anomaly_score);
                 }
+            }
+            using (HDevDisposeHelper dh = new HDevDisposeHelper())
+            {
+                HOperatorSet.DispRectangle1(hWindow, rect1.Row1, rect1.Colum1, rect1.Row2, rect1.Colum2);
             }
             ho_Rectangle.Dispose();
             ho_ImagePart.Dispose();
