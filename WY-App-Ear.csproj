@@ -223,12 +223,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utility\BalserCamera.cs" />
     <Compile Include="Utility\Constructor.cs" />
     <Compile Include="Utility\Halcon.cs" />
     <Compile Include="Utility\HalconTools.cs" />
     <Compile Include="Utility\HslCommunication.cs" />
-    <Compile Include="Utility\MV2DCam.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,7 +238,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Utility\LogHelper.cs" />
-    <Compile Include="Utility\MVCamera.cs" />
     <Compile Include="Utility\Parameter.cs" />
     <Compile Include="Utility\ShortCutHelper.cs" />
     <Compile Include="Utility\TcpClient.cs" />

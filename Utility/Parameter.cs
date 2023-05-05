@@ -381,7 +381,7 @@ namespace WY_App.Utility
                 TcpServerIpPort = 9600;
 
                 ImagePath = @"D:\VisionDetect\InspectImage\";
-                ImageSavePath = @"D:\Image\";
+                ImageSavePath = @"D:\Image";
                 DeviceID = "";
             }
         }
