@@ -61,12 +61,12 @@ namespace WY_App.Utility
                     {
                         Cam1Connect = initalCamera("CAM0", ref hv_AcqHandle0);
                         LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机1链接失败");
-                        主窗体.AlarmList.Add(System.DateTime.Now.ToString() + "相机1链接失败");
+                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机1链接失败");
                     }
                     else
                     {
                         LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机1链接成功");
-                        主窗体.AlarmList.Add(System.DateTime.Now.ToString() + "相机1链接成功");
+                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机1链接成功");
                     }
                 }              
                 while (!Cam2Connect)
@@ -76,13 +76,13 @@ namespace WY_App.Utility
                     {
                         Cam2Connect = initalCamera("CAM1", ref hv_AcqHandle1);
                         LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机2链接失败");
-                        主窗体.AlarmList.Add(System.DateTime.Now.ToString() + "相机2链接失败");
+                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机2链接失败");
                     }
                     else
                     {
 
                         LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机2链接成功");
-                        主窗体.AlarmList.Add(System.DateTime.Now.ToString() + "相机2链接成功");
+                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机2链接成功");
                     }
                 }
             }
@@ -118,21 +118,21 @@ namespace WY_App.Utility
         }
         public static bool ImgDisplay2(int i, string imgPath, HTuple Hwindow)
         {
-            HOperatorSet.GenEmptyObj(out 主窗体.hImage2[i]);
+            HOperatorSet.GenEmptyObj(out MainForm.hImage2[i]);
             HOperatorSet.SetPart(Hwindow, 0, 0, -1, -1);//设置窗体的规格
-            HOperatorSet.ReadImage(out 主窗体.hImage2[i], imgPath);//读取图片存入到HalconImage           
-            HOperatorSet.GetImageSize(主窗体.hImage2[i], out hv_Width[i], out hv_Height[i]);//获取图片大小规格
-            HOperatorSet.DispObj(主窗体.hImage2[i], Hwindow);//显示图片
+            HOperatorSet.ReadImage(out MainForm.hImage2[i], imgPath);//读取图片存入到HalconImage           
+            HOperatorSet.GetImageSize(MainForm.hImage2[i], out hv_Width[i], out hv_Height[i]);//获取图片大小规格
+            HOperatorSet.DispObj(MainForm.hImage2[i], Hwindow);//显示图片
             return true;
         }
 
         public static bool ImgDisplay(int i, string imgPath, HTuple Hwindow)
         {
-            HOperatorSet.GenEmptyObj(out 主窗体.hImage[i]);
+            HOperatorSet.GenEmptyObj(out MainForm.hImage[i]);
             HOperatorSet.SetPart(Hwindow, 0, 0, -1, -1);//设置窗体的规格
-            HOperatorSet.ReadImage(out 主窗体.hImage[i], imgPath);//读取图片存入到HalconImage           
-            HOperatorSet.GetImageSize(主窗体.hImage[i], out hv_Width[i], out hv_Height[i]);//获取图片大小规格
-            HOperatorSet.DispObj(主窗体.hImage[i], Hwindow);//显示图片
+            HOperatorSet.ReadImage(out MainForm.hImage[i], imgPath);//读取图片存入到HalconImage           
+            HOperatorSet.GetImageSize(MainForm.hImage[i], out hv_Width[i], out hv_Height[i]);//获取图片大小规格
+            HOperatorSet.DispObj(MainForm.hImage[i], Hwindow);//显示图片
             return true;
         }
         //        //-----------------------------------------------------------------------------

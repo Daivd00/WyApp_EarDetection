@@ -60,7 +60,7 @@ namespace WY_App
             if (!Authorization.SetAuthorizationCode("f562cc4c-4772-4b32-bdcd-f3e122c534e3"))
             {
                 LogHelper.Log.WriteError("HslCommunication 组件认证失败，组件只能使用8小时!");
-                主窗体.AlarmList.Add("HslCommunication 组件认证失败，组件只能使用8小时!");
+                MainForm.AlarmList.Add("HslCommunication 组件认证失败，组件只能使用8小时!");
             }           
             while (!plc_connect_result)
             {
@@ -138,27 +138,27 @@ namespace WY_App
                     else
                     {
                         LogHelper.Log.WriteError(Parameter.commministion.PlcType + "类型未定义!!!");
-                        主窗体.AlarmList.Add(Parameter.commministion.PlcType + "类型未定义!!!");
+                        MainForm.AlarmList.Add(Parameter.commministion.PlcType + "类型未定义!!!");
                         plc_connect_result = false;
                     }
                    
                     if (plc_connect_result)
                     {
                         LogHelper.Log.WriteInfo(Parameter.commministion.PlcType + "连接成功:IP" + Parameter.commministion.PlcIpAddress + "  Port:" + Parameter.commministion.PlcIpPort);
-                        主窗体.AlarmList.Add(Parameter.commministion.PlcType + "连接成功:IP" + Parameter.commministion.PlcIpAddress + "  Port:" + Parameter.commministion.PlcIpPort);
+                        MainForm.AlarmList.Add(Parameter.commministion.PlcType + "连接成功:IP" + Parameter.commministion.PlcIpAddress + "  Port:" + Parameter.commministion.PlcIpPort);
                         plc_connect_result = true;
                     }
                     else
                     {
                         LogHelper.Log.WriteError(Parameter.commministion.PlcType + "连接失败:IP" + Parameter.commministion.PlcIpAddress + "  Port:" + Parameter.commministion.PlcIpPort);
-                        主窗体.AlarmList.Add(Parameter.commministion.PlcType + "连接失败:IP" + Parameter.commministion.PlcIpAddress + "  Port:" + Parameter.commministion.PlcIpPort);
+                        MainForm.AlarmList.Add(Parameter.commministion.PlcType + "连接失败:IP" + Parameter.commministion.PlcIpAddress + "  Port:" + Parameter.commministion.PlcIpPort);
                         plc_connect_result = false;
                     }
                 }
                 catch (Exception ex)
                 {
                     LogHelper.Log.WriteError(Parameter.commministion.PlcType + "初始化失败:", ex.Message);
-                    主窗体.AlarmList.Add(Parameter.commministion.PlcType + "初始化失败:"+ ex.Message);
+                    MainForm.AlarmList.Add(Parameter.commministion.PlcType + "初始化失败:"+ ex.Message);
                     plc_connect_result = false;
                 }
             }

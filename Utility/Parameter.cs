@@ -340,7 +340,7 @@ namespace WY_App.Utility
             /// path
             /// </summary>
             public string ImageSavePath;
-
+            public string DeviceID;
             /// <summary>
             /// 联机参数设置
             /// </summary>
@@ -382,6 +382,7 @@ namespace WY_App.Utility
 
                 ImagePath = @"D:\VisionDetect\InspectImage\";
                 ImageSavePath = @"D:\Image\";
+                DeviceID = "";
             }
         }
 

@@ -34,7 +34,7 @@ namespace WY_App.Utility
                     socketSend.Connect(point);
                     LogHelper.Log.WriteInfo("TcpClientIP:" + Parameter.commministion.TcpClientIpAddress +"Port:"+ Parameter.commministion.TcpClientIpPort+ "链接成功");
                     string str = TcpClient.tcpClientSend("Tcp客户端接入");
-                    主窗体.AlarmList.Add("TcpClientIP:" + Parameter.commministion.TcpClientIpAddress + "Port:" + Parameter.commministion.TcpClientIpPort + "链接成功");
+                    MainForm.AlarmList.Add("TcpClientIP:" + Parameter.commministion.TcpClientIpAddress + "Port:" + Parameter.commministion.TcpClientIpPort + "链接成功");
                     TcpClientConnectResult = true;
                     Thread th = new Thread(ReciveMessagr);
                     th.IsBackground = true;
@@ -44,7 +44,7 @@ namespace WY_App.Utility
                 catch (Exception ex)
                 {
                     LogHelper.Log.WriteError("TcpClientIP:" + Parameter.commministion.TcpClientIpAddress + "Port:" + Parameter.commministion.TcpClientIpPort +"链接失败:", ex.Message);
-                    主窗体.AlarmList.Add("TcpClientIP:" + Parameter.commministion.TcpClientIpAddress + "Port:" + Parameter.commministion.TcpClientIpPort + "链接失败:" + ex.Message);
+                    MainForm.AlarmList.Add("TcpClientIP:" + Parameter.commministion.TcpClientIpAddress + "Port:" + Parameter.commministion.TcpClientIpPort + "链接失败:" + ex.Message);
                     TcpClientConnectResult = false;
                 }
             }          
@@ -56,10 +56,10 @@ namespace WY_App.Utility
             byte[] buffer = System.Text.Encoding.UTF8.GetBytes(sendstr);
             socketSend.Send(buffer);
             LogHelper.Log.WriteInfo(socketSend.RemoteEndPoint + "发送数据:" + sendstr);
-            主窗体.AlarmList.Add(socketSend.RemoteEndPoint + "发送数据:" + sendstr);
+            MainForm.AlarmList.Add(socketSend.RemoteEndPoint + "发送数据:" + sendstr);
             reciveStr = Recive();
             LogHelper.Log.WriteInfo(socketSend.RemoteEndPoint + "接收数据:" + reciveStr);
-            主窗体.AlarmList.Add(socketSend.RemoteEndPoint + "接收数据:" + reciveStr);
+            MainForm.AlarmList.Add(socketSend.RemoteEndPoint + "接收数据:" + reciveStr);
             return reciveStr;
 
         }
@@ -96,7 +96,7 @@ namespace WY_App.Utility
                     }
                     string s = Encoding.UTF8.GetString(buffer, 0, r);
                     
-                    主窗体.AlarmList.Add(socketSend.RemoteEndPoint + "接收数据:" + s);
+                    MainForm.AlarmList.Add(socketSend.RemoteEndPoint + "接收数据:" + s);
                 }
                 catch (Exception)
                 {

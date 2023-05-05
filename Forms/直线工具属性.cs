@@ -27,47 +27,47 @@ namespace WY_App
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            if (主窗体.formloadIndex == 3 || 主窗体.formloadIndex == 4)
+            if (MainForm.formloadIndex == 3 || MainForm.formloadIndex == 4)
             {
-                if (主窗体.LineIndex < 3)
+                if (MainForm.LineIndex < 3)
                 {
-                    Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].阈值  = num_yuzhi.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].simga = num_sigma.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].Index = (int)num_Index.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].LineLength = (int)Linelength.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].极性 = cmb_极性.Text;
+                    Parameter.specificationsCam1[MainForm.formloadIndex-3].基准[MainForm.LineIndex].阈值  = num_yuzhi.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex-3].基准[MainForm.LineIndex].simga = num_sigma.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex-3].基准[MainForm.LineIndex].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex-3].基准[MainForm.LineIndex].LineLength = (int)Linelength.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex-3].基准[MainForm.LineIndex].极性 = cmb_极性.Text;
 
                     XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[0], "Parameter/Cam1Specifications" + 0 + ".xml");
                 }
                 else
                 {
-                    Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].阈值 = num_yuzhi.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].simga = num_sigma.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].Index = (int)num_Index.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].LineLength = (int)Linelength.Value;
-                    Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].极性 = cmb_极性.Text;
+                    Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex - 3].阈值 = num_yuzhi.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex - 3].simga = num_sigma.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex-3].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex-3].LineLength = (int)Linelength.Value;
+                    Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex-3].极性 = cmb_极性.Text;
                     XMLHelper.serialize<Parameter.SpecificationsCam1>(Parameter.specificationsCam1[1], "Parameter/Cam1Specifications" + 1 + ".xml");
                 }
             }
 
-            if (主窗体.formloadIndex == 5 || 主窗体.formloadIndex == 6)
+            if (MainForm.formloadIndex == 5 || MainForm.formloadIndex == 6)
             {
-                if (主窗体.LineIndex < 3)
+                if (MainForm.LineIndex < 3)
                 {
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].阈值 = num_yuzhi.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].simga = num_sigma.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].Index = (int)num_Index.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].LineLength = (int)Linelength.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].极性 = cmb_极性.Text;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].阈值 = num_yuzhi.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].simga = num_sigma.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].LineLength = (int)Linelength.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].极性 = cmb_极性.Text;
                     XMLHelper.serialize<Parameter.SpecificationsCam2>(Parameter.specificationsCam2[0], "Parameter/Cam2Specifications" + 0 + ".xml");
                 }
                 else
                 {
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].阈值 = num_yuzhi.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].simga = num_sigma.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].Index = (int)num_Index.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].LineLength = (int)Linelength.Value;
-                    Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].极性 = cmb_极性.Text;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].阈值 = num_yuzhi.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].simga = num_sigma.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].Index = (int)num_Index.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].LineLength = (int)Linelength.Value;
+                    Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].极性 = cmb_极性.Text;
                     XMLHelper.serialize<Parameter.SpecificationsCam2>(Parameter.specificationsCam2[1], "Parameter/Cam2Specifications" + 1 + ".xml");
                 }
             }
@@ -76,44 +76,44 @@ namespace WY_App
 
         private void 直线工具属性_Load(object sender, EventArgs e)
         {
-            if (主窗体.formloadIndex == 3|| 主窗体.formloadIndex == 4)
+            if (MainForm.formloadIndex == 3|| MainForm.formloadIndex == 4)
             {
-                if(主窗体.LineIndex<3)
+                if(MainForm.LineIndex<3)
                 {
-                    num_yuzhi.Value = Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].阈值;
-                    num_sigma.Value = Parameter.specificationsCam1[主窗体.formloadIndex-3].基准[主窗体.LineIndex].simga;
-                    num_Index.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].基准[主窗体.LineIndex].Index;
-                    Linelength.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].基准[主窗体.LineIndex].LineLength;
-                    cmb_极性.Text = Parameter.specificationsCam1[主窗体.formloadIndex - 3].基准[主窗体.LineIndex].极性;
+                    num_yuzhi.Value = Parameter.specificationsCam1[MainForm.formloadIndex-3].基准[MainForm.LineIndex].阈值;
+                    num_sigma.Value = Parameter.specificationsCam1[MainForm.formloadIndex-3].基准[MainForm.LineIndex].simga;
+                    num_Index.Value = Parameter.specificationsCam1[MainForm.formloadIndex - 3].基准[MainForm.LineIndex].Index;
+                    Linelength.Value = Parameter.specificationsCam1[MainForm.formloadIndex - 3].基准[MainForm.LineIndex].LineLength;
+                    cmb_极性.Text = Parameter.specificationsCam1[MainForm.formloadIndex - 3].基准[MainForm.LineIndex].极性;
 
                 }
                 else
                 {
-                    num_yuzhi.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].阈值;
-                    num_sigma.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].simga;
-                    num_Index.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].Index;
-                    Linelength.Value = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex-3].LineLength;
-                    cmb_极性.Text = Parameter.specificationsCam1[主窗体.formloadIndex - 3].模板区域[主窗体.LineIndex - 3].极性;
+                    num_yuzhi.Value = Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex-3].阈值;
+                    num_sigma.Value = Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex-3].simga;
+                    num_Index.Value = Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex - 3].Index;
+                    Linelength.Value = Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex-3].LineLength;
+                    cmb_极性.Text = Parameter.specificationsCam1[MainForm.formloadIndex - 3].模板区域[MainForm.LineIndex - 3].极性;
                 }
             }
             
-            if(主窗体.formloadIndex == 5|| 主窗体.formloadIndex == 6)
+            if(MainForm.formloadIndex == 5|| MainForm.formloadIndex == 6)
             {
-                if (主窗体.LineIndex < 3)
+                if (MainForm.LineIndex < 3)
                 {
-                    num_yuzhi.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].阈值;
-                    num_sigma.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].simga;
-                    num_Index.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].Index;
-                    Linelength.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].LineLength;
-                    cmb_极性.Text = Parameter.specificationsCam2[主窗体.formloadIndex - 5].基准[主窗体.LineIndex].极性;
+                    num_yuzhi.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].阈值;
+                    num_sigma.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].simga;
+                    num_Index.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].Index;
+                    Linelength.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].LineLength;
+                    cmb_极性.Text = Parameter.specificationsCam2[MainForm.formloadIndex - 5].基准[MainForm.LineIndex].极性;
                 }
                 else
                 {
-                    num_yuzhi.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].阈值;
-                    num_sigma.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].simga;
-                    num_Index.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex-3].Index;
-                    Linelength.Value = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex-3].LineLength;
-                    cmb_极性.Text = Parameter.specificationsCam2[主窗体.formloadIndex - 5].模板区域[主窗体.LineIndex - 3].极性;
+                    num_yuzhi.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].阈值;
+                    num_sigma.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].simga;
+                    num_Index.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex-3].Index;
+                    Linelength.Value = Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex-3].LineLength;
+                    cmb_极性.Text = Parameter.specificationsCam2[MainForm.formloadIndex - 5].模板区域[MainForm.LineIndex - 3].极性;
                 }
             }
             

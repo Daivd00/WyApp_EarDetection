@@ -38,7 +38,7 @@ namespace WY_App.Utility
                     socketWatch.SendTimeout = 1000;
                     socketWatch.ReceiveTimeout = 1000;
                     LogHelper.Log.WriteInfo("TcpServerIP:" + Parameter.commministion.TcpServerIpAddress + "端口号:" + Parameter.commministion.TcpServerIpPort + "监听成功");
-                    主窗体.AlarmList.Add("TcpServerIP:" + Parameter.commministion.TcpServerIpAddress + "端口号:" + Parameter.commministion.TcpServerIpPort + "监听成功");
+                    MainForm.AlarmList.Add("TcpServerIP:" + Parameter.commministion.TcpServerIpAddress + "端口号:" + Parameter.commministion.TcpServerIpPort + "监听成功");
                     //开始监听：设置最大可以同时连接多少个请求
                     socketWatch.Listen(10);
 
@@ -75,7 +75,7 @@ namespace WY_App.Utility
                     TcpServerConnectResult = true;
                     TcpServerReceiveMsg = Encoding.UTF8.GetString(buffer, 0, count);
                     LogHelper.Log.WriteInfo(socketSend.RemoteEndPoint + ":" + TcpServerReceiveMsg);
-                    主窗体.AlarmList.Add(socketSend.RemoteEndPoint + ":" + TcpServerReceiveMsg);
+                    MainForm.AlarmList.Add(socketSend.RemoteEndPoint + ":" + TcpServerReceiveMsg);
                 }
                 catch (Exception)
                 {
@@ -95,7 +95,7 @@ namespace WY_App.Utility
                     //等待客户端的链接，并且创建一个用于通信的Socket
                     socketSend = socketWatch.Accept();
                     LogHelper.Log.WriteInfo(socketSend.RemoteEndPoint + ":" + "接入成功");
-                    主窗体.AlarmList.Add(socketSend.RemoteEndPoint + ":" + "接入成功");
+                    MainForm.AlarmList.Add(socketSend.RemoteEndPoint + ":" + "接入成功");
                     TcpServerConnectResult = true;
                     Thread th = new Thread(Recive);
                     th.IsBackground = true;

@@ -26,7 +26,7 @@ namespace WY_App
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 主窗体());
+            Application.Run(new MainForm());
         }
     }
 }

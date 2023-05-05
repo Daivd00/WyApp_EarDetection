@@ -30,7 +30,7 @@ namespace WY_App
         {
             InitializeComponent();
             HOperatorSet.SetPart(hWindowControl1.HalconWindow, 0, 0, -1, -1);//设置窗体的规格 
-            HOperatorSet.DispObj(主窗体.hImage2[0], hWindowControl1.HalconWindow);
+            HOperatorSet.DispObj(MainForm.hImage2[0], hWindowControl1.HalconWindow);
         }
         Point downPoint;
 
@@ -97,11 +97,11 @@ namespace WY_App
             uiComboBox3.Clear();
             for ( int index = 0;index < 7;index++)
 			{
-                uiComboBox3.Items.Add(主窗体.DName[index]);
+                uiComboBox3.Items.Add(MainForm.DName[index]);
             }
             uiComboBox3.SelectedIndex = 0;
             HOperatorSet.SetPart(hWindowControl1.HalconWindow, 0, 0, -1, -1);//设置窗体的规格 
-            HOperatorSet.DispObj(主窗体.hImage2[0], hWindowControl1.HalconWindow);
+            HOperatorSet.DispObj(MainForm.hImage2[0], hWindowControl1.HalconWindow);
             num_AreaHigh.Value = Parameter.specificationsCam2[0].AreaHigh[0];
             num_AreaLow.Value = Parameter.specificationsCam2[0].AreaLow[0];
             num_ThresholdHigh.Value = Parameter.specificationsCam2[0].ThresholdHigh[0];
@@ -122,11 +122,11 @@ namespace WY_App
         private void uiComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             uiComboBox2.SelectedIndex = 0;
-            主窗体.formloadIndex = uiComboBox1.SelectedIndex + 5;
+            MainForm.formloadIndex = uiComboBox1.SelectedIndex + 5;
 
             uiComboBox2_SelectedIndexChanged( sender,  e);
             HOperatorSet.SetPart(hWindowControl1.HalconWindow, 0, 0, -1, -1);//设置窗体的规格 
-            HOperatorSet.DispObj(主窗体.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+            HOperatorSet.DispObj(MainForm.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
 
             num_AreaHigh.Value = Parameter.specificationsCam2[uiComboBox1.SelectedIndex].AreaHigh[uiComboBox2.SelectedIndex];
             num_AreaLow.Value = Parameter.specificationsCam2[uiComboBox1.SelectedIndex].AreaLow[uiComboBox2.SelectedIndex];
@@ -140,49 +140,49 @@ namespace WY_App
 
         private void uiButton14_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0]);
         }
 
         private void uiButton16_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1]);
         }
 
         private void uiButton15_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[2]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[2]);
         }
 
         private void uiButton18_Click(object sender, EventArgs e)
         {
             HObject hImage = new HObject();
-            HOperatorSet.DispObj(主窗体.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            HOperatorSet.Threshold(主窗体.hImage2[uiComboBox1.SelectedIndex], out hImage, 16, 255);
+            HOperatorSet.DispObj(MainForm.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+            HOperatorSet.Threshold(MainForm.hImage2[uiComboBox1.SelectedIndex], out hImage, 16, 255);
            // HOperatorSet.DispObj(hImage, hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex+2, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0],  ref BaseReault[0]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex+2, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0],  ref BaseReault[0]);
             hImage.Dispose();
 
         }
 
         private void uiButton17_Click(object sender, EventArgs e)
         {
-            HOperatorSet.DispObj(主窗体.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex+2, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1],  ref BaseReault[1]);
+            HOperatorSet.DispObj(MainForm.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex+2, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1],  ref BaseReault[1]);
         }
 
         private void uiButton19_Click(object sender, EventArgs e)
         {
-            HOperatorSet.DispObj(主窗体.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex + 2, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[2], ref BaseReault[2]);
+            HOperatorSet.DispObj(MainForm.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex + 2, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[2], ref BaseReault[2]);
         }
 
         private void uiButton46_Click(object sender, EventArgs e)
         {
             try
             {
-                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0], ref BaseReault[0]);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0], ref BaseReault[0]);
 
-                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
 
                 HTuple Row, Column, IsOverlapping;
                 HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
@@ -200,20 +200,20 @@ namespace WY_App
                 HTuple HomMat2DRotate;
                 HOperatorSet.HomMat2dIdentity(out HomMat2DIdentity);
                 HOperatorSet.HomMat2dRotate(HomMat2DIdentity, -angle, Row, Column, out HomMat2DRotate);
-                HOperatorSet.AffineTransImage(主窗体.hImage2[uiComboBox1.SelectedIndex], out 主窗体.hImage2[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
+                HOperatorSet.AffineTransImage(MainForm.hImage2[uiComboBox1.SelectedIndex], out MainForm.hImage2[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
 
                 HomMat2DIdentity.Dispose();
                 HomMat2DRotate.Dispose();
 
                 HOperatorSet.HomMat2dIdentity(out HomMat2DIdentity);
                 HOperatorSet.HomMat2dTranslate(HomMat2DIdentity, -Row + Parameter.specificationsCam2[uiComboBox1.SelectedIndex].BaseRow, -Column + Parameter.specificationsCam2[uiComboBox1.SelectedIndex].BaseColumn, out HomMat2DRotate);
-                HOperatorSet.AffineTransImage(主窗体.hImage2[uiComboBox1.SelectedIndex], out 主窗体.hImage2[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
+                HOperatorSet.AffineTransImage(MainForm.hImage2[uiComboBox1.SelectedIndex], out MainForm.hImage2[uiComboBox1.SelectedIndex], HomMat2DRotate, "constant", "false");
 
-                HOperatorSet.DispObj(主窗体.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+                HOperatorSet.DispObj(MainForm.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
 
-                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0], ref BaseReault[0]);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[0], ref BaseReault[0]);
 
-                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
+                Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].基准[1], ref BaseReault[1]);
 
                 HOperatorSet.IntersectionLines(BaseReault[0].Row1, BaseReault[0].Colum1, BaseReault[0].Row2, BaseReault[0].Colum2,
                     BaseReault[1].Row1, BaseReault[1].Colum1, BaseReault[1].Row2, BaseReault[1].Colum2, out Row, out Column, out IsOverlapping);
@@ -238,15 +238,15 @@ namespace WY_App
         private void btn_显示检测区域_Click(object sender, EventArgs e)
         {
             bool result = true;
-            HOperatorSet.DispObj(主窗体.hImage2[uiComboBox1.SelectedIndex],hWindowControl1.HalconWindow);
-            Halcon.DetectionHalconRect1(uiComboBox1.SelectedIndex, uiComboBox2.SelectedIndex,hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].矩形检测区域[uiComboBox2.SelectedIndex], ref result);
+            HOperatorSet.DispObj(MainForm.hImage2[uiComboBox1.SelectedIndex],hWindowControl1.HalconWindow);
+            Halcon.DetectionHalconRect1(uiComboBox1.SelectedIndex, uiComboBox2.SelectedIndex,hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].矩形检测区域[uiComboBox2.SelectedIndex], ref result);
             bool dtResult = false;
-            Halcon.DetectionHalconRect2(uiComboBox1.SelectedIndex, uiComboBox2.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].矩形检测区域[uiComboBox2.SelectedIndex], ref dtResult);
+            Halcon.DetectionHalconRect2(uiComboBox1.SelectedIndex, uiComboBox2.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].矩形检测区域[uiComboBox2.SelectedIndex], ref dtResult);
         }
 
         private void uiButton29_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawRectAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].矩形检测区域[uiComboBox2.SelectedIndex]);
+            Halcon.DetectionDrawRectAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].矩形检测区域[uiComboBox2.SelectedIndex]);
         }
 
         private void num_ThresholdLow_ValueChanged(object sender, double value)
@@ -271,70 +271,70 @@ namespace WY_App
 
         private void uiButton5_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex*2]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex*2]);
         }
 
         private void uiButton7_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex * 2+1]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex * 2+1]);
         }
 
         private void uiButton6_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[2]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[2]);
         }
 
         private void uiButton4_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[3]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[3]);
         }
 
         private void uiButton3_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[4]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[4]);
         }
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[5]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[5]);
         }
 
 		private void uiButton30_Click(object sender, EventArgs e)//总宽直线拟合1
 		{
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[6]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[6]);
         }
 
 		private void uiButton33_Click(object sender, EventArgs e)//总宽直线拟合2
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[7]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[7]);
 		}
 		private void uiButton36_Click(object sender, EventArgs e)//左短端直线拟合1
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[8]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[8]);
         }
 		private void uiButton37_Click(object sender, EventArgs e)//左短端直线拟合2
 		{
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[9]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[9]);
         }
 		private void uiButton42_Click(object sender, EventArgs e)//右短端直线拟合1
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[10]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[10]);
         }
 
 		private void uiButton43_Click(object sender, EventArgs e)//右短端直线拟合2
         {
-            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[11]);
+            Halcon.DetectionDrawLineAOI(hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[11]);
         }
 
 
 		private void uiButton10_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex * 2],  ref pointReault[uiComboBox3.SelectedIndex * 2]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex * 2],  ref pointReault[uiComboBox3.SelectedIndex * 2]);
         }
 
         private void uiButton8_Click(object sender, EventArgs e)
         {
-            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex * 2+1], ref pointReault[uiComboBox3.SelectedIndex * 2+1]);
+            Halcon.DetectionHalconLine(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], Parameter.specificationsCam2[uiComboBox1.SelectedIndex].模板区域[uiComboBox3.SelectedIndex * 2+1], ref pointReault[uiComboBox3.SelectedIndex * 2+1]);
         }
 
 		private void uiButton13_Click(object sender, EventArgs e)
@@ -345,8 +345,8 @@ namespace WY_App
                                //Halcon.DetectionHalconDeepLearning(hWindowControl1.HalconWindow, 主窗体.hImage, 0, hv_DLModelHandle, hv_DLPreprocessParam, hv_InferenceClassificationThreshold, hv_InferenceSegmentationThreshold, point[1], point[2], point[4]);
             bool[] result = new bool[10];
             double[] value = new double[10];
-            HOperatorSet.DispObj(主窗体.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
-            Detection(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, 主窗体.hImage2[uiComboBox1.SelectedIndex], ref result, ref value);
+            HOperatorSet.DispObj(MainForm.hImage2[uiComboBox1.SelectedIndex], hWindowControl1.HalconWindow);
+            Detection(uiComboBox1.SelectedIndex, hWindowControl1.HalconWindow, MainForm.hImage2[uiComboBox1.SelectedIndex], ref result, ref value);
             stopwatch.Stop(); //  停止监视
             TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
             double milliseconds = timespan.TotalMilliseconds;  //  总毫秒数           
@@ -386,7 +386,7 @@ namespace WY_App
                 HObject ImageAffineTrans;
                 HOperatorSet.HomMat2dIdentity(out HomMat2DIdentity);
                 HOperatorSet.HomMat2dTranslate(HomMat2DIdentity, -Row + Parameter.specificationsCam2[i].BaseRow, -Column + Parameter.specificationsCam2[i].BaseColumn, out HomMat2DRotate);
-                HOperatorSet.AffineTransImage(ImageAffineTran, out 主窗体.hImage2[i], HomMat2DRotate, "constant", "false");
+                HOperatorSet.AffineTransImage(ImageAffineTran, out MainForm.hImage2[i], HomMat2DRotate, "constant", "false");
                 HOperatorSet.AffineTransImage(ImageAffineTran, out ImageAffineTrans, HomMat2DRotate, "constant", "false");
                 HOperatorSet.DispObj(ImageAffineTrans, hWindow);
                 Halcon.DetectionHalconLine(i, hWindow, ImageAffineTrans, Parameter.specificationsCam2[i].基准[0], ref BaseReault[0]);
@@ -469,7 +469,7 @@ namespace WY_App
                         HOperatorSet.SetColor(hWindow, "green");
                     }
                     HOperatorSet.SetTposition(hWindow, 100 + index * 100, 100);
-                    HOperatorSet.WriteString(hWindow, 主窗体.DName[index] +  value[index]); 
+                    HOperatorSet.WriteString(hWindow, MainForm.DName[index] +  value[index]); 
                     
 					minDistance.Dispose();
 					maxDistance.Dispose();
@@ -488,7 +488,7 @@ namespace WY_App
                 TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
                 double milliseconds = timespan.TotalMilliseconds;  //  总毫秒数           
                 LogHelper.Log.WriteInfo("程序检测时间:" + System.DateTime.Now.ToString("ss-fff") + "程序检测时长:" + milliseconds.ToString() + "ms");
-                主窗体.AlarmList.Add("程序检测时间:" + System.DateTime.Now.ToString("ss-fff") + "程序检测时长:" + milliseconds.ToString() + "ms");
+                MainForm.AlarmList.Add("程序检测时间:" + System.DateTime.Now.ToString("ss-fff") + "程序检测时长:" + milliseconds.ToString() + "ms");
             }
             catch
             {
@@ -504,35 +504,35 @@ namespace WY_App
 
         private void uiButton20_Click(object sender, EventArgs e)
         {
-            主窗体.LineIndex = 0;
+            MainForm.LineIndex = 0;
             直线工具属性 flg = new 直线工具属性();
             flg.ShowDialog();
         }
 
         private void uiButton21_Click(object sender, EventArgs e)
         {
-            主窗体.LineIndex = 1;
+            MainForm.LineIndex = 1;
             直线工具属性 flg = new 直线工具属性();
             flg.ShowDialog();
         }
 
         private void uiButton22_Click(object sender, EventArgs e)
         {
-            主窗体.LineIndex = 2;
+            MainForm.LineIndex = 2;
             直线工具属性 flg = new 直线工具属性();
             flg.ShowDialog();
         }
 
         private void uiButton23_Click(object sender, EventArgs e)
         {
-            主窗体.LineIndex = uiComboBox3.SelectedIndex * 2+3;
+            MainForm.LineIndex = uiComboBox3.SelectedIndex * 2+3;
             直线工具属性 flg = new 直线工具属性();
             flg.ShowDialog();
         }
 
         private void uiButton24_Click(object sender, EventArgs e)
         {
-            主窗体.LineIndex = uiComboBox3.SelectedIndex * 2+ 4;
+            MainForm.LineIndex = uiComboBox3.SelectedIndex * 2+ 4;
             直线工具属性 flg = new 直线工具属性();
             flg.ShowDialog();
         }
